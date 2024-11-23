@@ -1,0 +1,148 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="24.8.4">
+  <diagram name="Page-1" id="Asgtg1ykxPDc_fzMpAZI">
+    <mxGraphModel dx="1236" dy="924" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kgRjzxWImTqKQpXdMf63-10" value="joueurs" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry width="200" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-11" value="&lt;b&gt;id&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-10">
+          <mxGeometry y="20" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-17" value="prenom" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-10">
+          <mxGeometry y="170" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-16" value="nom" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-10">
+          <mxGeometry y="140" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-15" value="nationalité" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-10">
+          <mxGeometry y="110" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-14" value="poids" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-10">
+          <mxGeometry y="80" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-13" value="age" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-10">
+          <mxGeometry y="50" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-18" value="classement" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-10">
+          <mxGeometry y="200" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-20" value="victoires" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-10">
+          <mxGeometry y="290" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-19" value="total match" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-10">
+          <mxGeometry y="260" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-21" value="taux de victoires" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-10">
+          <mxGeometry y="230" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-23" value="primes" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-10">
+          <mxGeometry y="350" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-22" value="classement atp" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-10">
+          <mxGeometry y="320" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-47" value="main_forte" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-10">
+          <mxGeometry y="380" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-71" value="forme(ratio W \ L)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-10">
+          <mxGeometry y="410" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-24" value="tournois" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-25" value="&lt;b&gt;id&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-24">
+          <mxGeometry y="20" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-26" value="date/saison" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-24">
+          <mxGeometry y="170" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-27" value="cashprize" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-24">
+          <mxGeometry y="140" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-28" value="nom" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-24">
+          <mxGeometry y="110" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-29" value="lieu" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-24">
+          <mxGeometry y="80" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-30" value="type_terrain" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-24">
+          <mxGeometry y="50" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-37" value="matches" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" width="200" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-39" value="résultat" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-37">
+          <mxGeometry y="230" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-40" value="sets" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-37">
+          <mxGeometry y="200" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-42" value="statut" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-37">
+          <mxGeometry y="110" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-45" value="&lt;b&gt;id_tournoi&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-37">
+          <mxGeometry y="50" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-38" value="&lt;b&gt;id&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-37">
+          <mxGeometry y="20" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-49" value="date" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-37">
+          <mxGeometry y="80" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-41" value="&lt;b&gt;id_joueur_gagnant&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-37">
+          <mxGeometry y="140" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-50" value="&lt;b&gt;id_joueur_perdant&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-37">
+          <mxGeometry y="170" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-51" value="type_terrain" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-37">
+          <mxGeometry y="260" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-52" value="detail_matches" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="840" width="200" height="410" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-54" value="sets" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-52">
+          <mxGeometry y="110" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-57" value="&lt;b&gt;id_matches&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-52">
+          <mxGeometry y="20" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-59" value="&lt;b&gt;id_joueur_gagnant&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-52">
+          <mxGeometry y="50" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-60" value="&lt;b&gt;id_joueur_perdant&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-52">
+          <mxGeometry y="80" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-62" value="premier_service_%" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-52">
+          <mxGeometry y="140" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-63" value="point_gagné_premier_service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-52">
+          <mxGeometry y="170" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-64" value="point_gagne_second_service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-52">
+          <mxGeometry y="200" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-65" value="balle_break_gagne" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-52">
+          <mxGeometry y="230" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-66" value="balle_break_gagne" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-52">
+          <mxGeometry y="260" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-67" value="point_gagne_sur_retour" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-52">
+          <mxGeometry y="290" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-68" value="total_point_gagne" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-52">
+          <mxGeometry y="320" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-69" value="double_fautes" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-52">
+          <mxGeometry y="350" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kgRjzxWImTqKQpXdMf63-70" value="aces" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="kgRjzxWImTqKQpXdMf63-52">
+          <mxGeometry y="380" width="200" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
