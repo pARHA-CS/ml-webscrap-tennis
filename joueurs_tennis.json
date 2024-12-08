@@ -1,0 +1,68 @@
+{
+    "Jannik Sinner": {
+        "info": {
+            "nom": "Jannik Sinner",
+            "pays": "Italy",
+            "date_naissance": "16.08.01",
+            "age": "23 ans",
+            "classement_atp": "1",
+            "points": "11830",
+            "primes": "17043434 $",
+            "total_match": "491",
+            "victoires": "356",
+            "taux_reussite": "72.51 %"
+        },
+        "statistiques": [
+            {
+                "annee": "2024",
+                "sommaire": "74/7",
+                "dure": "41/3",
+                "terre_battue": "11/3",
+                "salle": "13/0",
+                "carpet": "0/0",
+                "gazon": "9/1",
+                "acryl": "0/0"
+            },
+            {
+                "annee": "2023",
+                "sommaire": "66/18",
+                "dure": "29/7",
+                "terre_battue": "8/4",
+                "salle": "21/4",
+                "carpet": "0/0",
+                "gazon": "8/3",
+                "acryl": "0/0"
+            },
+            {
+                "annee": "2022",
+                "sommaire": "47/17",
+                "dure": "21/7",
+                "terre_battue": "15/4",
+                "salle": "7/4",
+                "carpet": "0/0",
+                "gazon": "4/2",
+                "acryl": "0/0"
+            },
+            {
+                "annee": "2021",
+                "sommaire": "50/24",
+                "dure": "23/10",
+                "terre_battue": "10/6",
+                "salle": "17/6",
+                "carpet": "0/0",
+                "gazon": "0/2",
+                "acryl": "0/0"
+            },
+            {
+                "annee": "2020",
+                "sommaire": "24/16",
+                "dure": "2/6",
+                "terre_battue": "10/5",
+                "salle": "12/5",
+                "carpet": "0/0",
+                "gazon": "0/0",
+                "acryl": "0/0"
+            }
+        ]
+    }
+}
