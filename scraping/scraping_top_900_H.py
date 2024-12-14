@@ -8,6 +8,7 @@ from requests import get
 from bs4 import BeautifulSoup
 from dataclasses import dataclass
 import json
+import os
 
 ADRESSE = "https://www.tennisendirect.net/atp/classement/"
 
@@ -82,8 +83,12 @@ lignes_inter = extraire_lignes(table_inter)
 
 joueurs = [genere_ligne(ligne) for ligne in lignes_inter if genere_ligne(ligne)]
 
+current_dir: str = os.getcwd()
 
-with open("joueurs.json", "w") as fichier:
+file_path: str = os.path.join(current_dir, "donnees", "joueurs.json")
+
+
+with open(file_path, "w") as fichier:
     fichier.write(
         json.dumps(
             [joueur.__dict__ for joueur in joueurs], ensure_ascii=False, indent=4

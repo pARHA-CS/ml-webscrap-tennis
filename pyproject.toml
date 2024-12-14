@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "beautifulsoup4-stubs",
     "beautifulsoup4==4.12.3",
     "black==24.10.0",
     "bs4==0.0.2",

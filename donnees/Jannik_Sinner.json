@@ -4,116 +4,86 @@
             "nom": "Jannik Sinner",
             "pays": "Italy",
             "date_naissance": "16.08.01",
-            "age": "23 ans",
+            "age": "23",
             "classement_atp": "1",
             "points": "11830",
-            "primes": "17043434 $",
+            "primes": "17043434",
             "total_match": "491",
             "victoires": "356",
-            "taux_reussite": "72.51 %"
+            "taux_reussite": "72.51"
         },
-        "statistiques": [
-            {
-                "annee": "2024",
-                "sommaire": "74/7",
-                "dure": "41/3",
-                "terre_battue": "11/3",
-                "salle": "13/0",
-                "carpet": "0/0",
-                "gazon": "9/1",
-                "acryl": "0/0"
-            },
-            {
-                "annee": "2023",
-                "sommaire": "66/18",
-                "dure": "29/7",
-                "terre_battue": "8/4",
-                "salle": "21/4",
-                "carpet": "0/0",
-                "gazon": "8/3",
-                "acryl": "0/0"
-            },
-            {
-                "annee": "2022",
-                "sommaire": "47/17",
-                "dure": "21/7",
-                "terre_battue": "15/4",
-                "salle": "7/4",
-                "carpet": "0/0",
-                "gazon": "4/2",
-                "acryl": "0/0"
-            },
-            {
-                "annee": "2021",
-                "sommaire": "50/24",
-                "dure": "23/10",
-                "terre_battue": "10/6",
-                "salle": "17/6",
-                "carpet": "0/0",
-                "gazon": "0/2",
-                "acryl": "0/0"
-            },
-            {
-                "annee": "2020",
-                "sommaire": "24/16",
-                "dure": "2/6",
-                "terre_battue": "10/5",
-                "salle": "12/5",
-                "carpet": "0/0",
-                "gazon": "0/0",
-                "acryl": "0/0"
-            },
-            {
-                "annee": "2019",
-                "sommaire": "62/24",
-                "dure": "12/6",
-                "terre_battue": "17/8",
-                "salle": "31/7",
-                "carpet": "0/0",
-                "gazon": "2/3",
-                "acryl": "0/0"
-            },
-            {
-                "annee": "2018",
-                "sommaire": "31/23",
-                "dure": "13/9",
-                "terre_battue": "17/12",
-                "salle": "1/1",
-                "carpet": "0/1",
-                "gazon": "0/0",
-                "acryl": "0/0"
-            },
-            {
-                "annee": "2017",
-                "sommaire": "1/2",
-                "dure": "0/0",
-                "terre_battue": "1/2",
-                "salle": "0/0",
-                "carpet": "0/0",
-                "gazon": "0/0",
-                "acryl": "0/0"
-            },
-            {
-                "annee": "2016",
-                "sommaire": "1/2",
-                "dure": "0/0",
-                "terre_battue": "1/2",
-                "salle": "0/0",
-                "carpet": "0/0",
-                "gazon": "0/0",
-                "acryl": "0/0"
-            },
-            {
-                "annee": "2015",
-                "sommaire": "0/2",
-                "dure": "0/0",
-                "terre_battue": "0/2",
-                "salle": "0/0",
-                "carpet": "0/0",
-                "gazon": "0/0",
-                "acryl": "0/0"
-            }
-        ],
+        "statistiques": {
+            "2024_sommaire": "74/7",
+            "2024_dure": "41/3",
+            "2024_terre_battue": "11/3",
+            "2024_salle": "13/0",
+            "2024_carpet": "0/0",
+            "2024_gazon": "9/1",
+            "2024_acryl": "0/0",
+            "2023_sommaire": "66/18",
+            "2023_dure": "29/7",
+            "2023_terre_battue": "8/4",
+            "2023_salle": "21/4",
+            "2023_carpet": "0/0",
+            "2023_gazon": "8/3",
+            "2023_acryl": "0/0",
+            "2022_sommaire": "47/17",
+            "2022_dure": "21/7",
+            "2022_terre_battue": "15/4",
+            "2022_salle": "7/4",
+            "2022_carpet": "0/0",
+            "2022_gazon": "4/2",
+            "2022_acryl": "0/0",
+            "2021_sommaire": "50/24",
+            "2021_dure": "23/10",
+            "2021_terre_battue": "10/6",
+            "2021_salle": "17/6",
+            "2021_carpet": "0/0",
+            "2021_gazon": "0/2",
+            "2021_acryl": "0/0",
+            "2020_sommaire": "24/16",
+            "2020_dure": "2/6",
+            "2020_terre_battue": "10/5",
+            "2020_salle": "12/5",
+            "2020_carpet": "0/0",
+            "2020_gazon": "0/0",
+            "2020_acryl": "0/0",
+            "2019_sommaire": "62/24",
+            "2019_dure": "12/6",
+            "2019_terre_battue": "17/8",
+            "2019_salle": "31/7",
+            "2019_carpet": "0/0",
+            "2019_gazon": "2/3",
+            "2019_acryl": "0/0",
+            "2018_sommaire": "31/23",
+            "2018_dure": "13/9",
+            "2018_terre_battue": "17/12",
+            "2018_salle": "1/1",
+            "2018_carpet": "0/1",
+            "2018_gazon": "0/0",
+            "2018_acryl": "0/0",
+            "2017_sommaire": "1/2",
+            "2017_dure": "0/0",
+            "2017_terre_battue": "1/2",
+            "2017_salle": "0/0",
+            "2017_carpet": "0/0",
+            "2017_gazon": "0/0",
+            "2017_acryl": "0/0",
+            "2016_sommaire": "1/2",
+            "2016_dure": "0/0",
+            "2016_terre_battue": "1/2",
+            "2016_salle": "0/0",
+            "2016_carpet": "0/0",
+            "2016_gazon": "0/0",
+            "2016_acryl": "0/0",
+            "2015_sommaire": "0/2",
+            "2015_dure": "0/0",
+            "2015_terre_battue": "0/2",
+            "2015_salle": "0/0",
+            "2015_carpet": "0/0",
+            "2015_gazon": "0/0",
+            "2015_acryl": "0/0"
+        },
         "matchs": [
             {
                 "date": "24.11.24",
@@ -122,7 +92,7 @@
                 "nom_opposant": "Tallon Griekspoor",
                 "score": "7-62, 6-2",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-tallon-griekspoor/davis-cup-world-group-f-ita-ned-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-tallon-griekspoor/davis-cup-world-group-f-ita-ned-2024/",
                 "tournoi": "Davis Cup, World Group, F, ITA-NED 2-0 / ",
                 "type_terrain": "salle"
             },
@@ -133,7 +103,7 @@
                 "nom_opposant": "Alex De Minaur",
                 "score": "6-3, 6-4",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-alex-de-minaur/davis-cup-world-group-sf-ita-aus-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-alex-de-minaur/davis-cup-world-group-sf-ita-aus-2024/",
                 "tournoi": "Davis Cup, World Group, SF, ITA-AUS 2-0 / ",
                 "type_terrain": "salle"
             },
@@ -144,7 +114,7 @@
                 "nom_opposant": "Sebastian Baez",
                 "score": "6-2, 6-1",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-sebastian-baez/davis-cup-world-group-qf-ita-arg-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-sebastian-baez/davis-cup-world-group-qf-ita-arg-2024/",
                 "tournoi": "Davis Cup, World Group, QF, ITA-ARG 2-1 / ",
                 "type_terrain": "salle"
             },
@@ -155,7 +125,7 @@
                 "nom_opposant": "Taylor Harry Fritz",
                 "score": "6-4, 6-4",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-taylor-harry-fritz/nitto-atp-finals-turin-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-taylor-harry-fritz/nitto-atp-finals-turin-2024/",
                 "tournoi": "Nitto ATP Finals - Turin / ",
                 "type_terrain": "salle"
             },
@@ -166,7 +136,7 @@
                 "nom_opposant": "Casper Ruud",
                 "score": "6-1, 6-2",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-casper-ruud/nitto-atp-finals-turin-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-casper-ruud/nitto-atp-finals-turin-2024/",
                 "tournoi": "Nitto ATP Finals - Turin / ",
                 "type_terrain": "salle"
             },
@@ -177,7 +147,7 @@
                 "nom_opposant": "Daniil Medvedev",
                 "score": "6-3, 6-4",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-daniil-medvedev/nitto-atp-finals-turin-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-daniil-medvedev/nitto-atp-finals-turin-2024/",
                 "tournoi": "Nitto ATP Finals - Turin / ",
                 "type_terrain": "salle"
             },
@@ -188,7 +158,7 @@
                 "nom_opposant": "Taylor Harry Fritz",
                 "score": "6-4, 6-4",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-taylor-harry-fritz/nitto-atp-finals-turin-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-taylor-harry-fritz/nitto-atp-finals-turin-2024/",
                 "tournoi": "Nitto ATP Finals - Turin / ",
                 "type_terrain": "salle"
             },
@@ -199,7 +169,7 @@
                 "nom_opposant": "Alex De Minaur",
                 "score": "6-3, 6-4",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-alex-de-minaur/nitto-atp-finals-turin-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-alex-de-minaur/nitto-atp-finals-turin-2024/",
                 "tournoi": "Nitto ATP Finals - Turin / ",
                 "type_terrain": "salle"
             },
@@ -210,7 +180,7 @@
                 "nom_opposant": "Novak Djokovic",
                 "score": "7-64, 6-3",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-novak-djokovic/shanghai-rolex-masters-shanghai-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-novak-djokovic/shanghai-rolex-masters-shanghai-2024/",
                 "tournoi": "Shanghai Rolex Masters - Shanghai / $10.2M",
                 "type_terrain": "dure"
             },
@@ -221,7 +191,7 @@
                 "nom_opposant": "Tomas Machac",
                 "score": "6-4, 7-5",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-tomas-machac/shanghai-rolex-masters-shanghai-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-tomas-machac/shanghai-rolex-masters-shanghai-2024/",
                 "tournoi": "Shanghai Rolex Masters - Shanghai / $10.2M",
                 "type_terrain": "dure"
             },
@@ -232,7 +202,7 @@
                 "nom_opposant": "Daniil Medvedev",
                 "score": "6-1, 6-4",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-daniil-medvedev/shanghai-rolex-masters-shanghai-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-daniil-medvedev/shanghai-rolex-masters-shanghai-2024/",
                 "tournoi": "Shanghai Rolex Masters - Shanghai / $10.2M",
                 "type_terrain": "dure"
             },
@@ -243,7 +213,7 @@
                 "nom_opposant": "Ben Shelton",
                 "score": "6-4, 7-61",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-ben-shelton/shanghai-rolex-masters-shanghai-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-ben-shelton/shanghai-rolex-masters-shanghai-2024/",
                 "tournoi": "Shanghai Rolex Masters - Shanghai / $10.2M",
                 "type_terrain": "dure"
             },
@@ -254,7 +224,7 @@
                 "nom_opposant": "Tomas Martin Etcheverry",
                 "score": "6-73, 6-4, 6-2",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-tomas-martin-etcheverry/shanghai-rolex-masters-shanghai-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-tomas-martin-etcheverry/shanghai-rolex-masters-shanghai-2024/",
                 "tournoi": "Shanghai Rolex Masters - Shanghai / $10.2M",
                 "type_terrain": "dure"
             },
@@ -265,7 +235,7 @@
                 "nom_opposant": "Taro Daniel",
                 "score": "6-1, 6-4",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-taro-taro/shanghai-rolex-masters-shanghai-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-taro-taro/shanghai-rolex-masters-shanghai-2024/",
                 "tournoi": "Shanghai Rolex Masters - Shanghai / $10.2M",
                 "type_terrain": "dure"
             },
@@ -276,7 +246,7 @@
                 "nom_opposant": "Carlos Alcaraz",
                 "score": "6-76, 6-4, 7-63",
                 "resultat": "dÃ©faite",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/carlos-alcaraz-garfia-VS-jannik-sinner/china-open-beijing-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/carlos-alcaraz-garfia-VS-jannik-sinner/china-open-beijing-2024/",
                 "tournoi": "China Open - Beijing / $3.891M",
                 "type_terrain": "dure"
             },
@@ -287,7 +257,7 @@
                 "nom_opposant": "Bu Yunchaokete",
                 "score": "6-3, 7-63",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-bu-yunchaokete/china-open-beijing-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-bu-yunchaokete/china-open-beijing-2024/",
                 "tournoi": "China Open - Beijing / $3.891M",
                 "type_terrain": "dure"
             },
@@ -298,7 +268,7 @@
                 "nom_opposant": "Jiri Lehecka",
                 "score": "6-2, 7-66",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-jiri-lehecka/china-open-beijing-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-jiri-lehecka/china-open-beijing-2024/",
                 "tournoi": "China Open - Beijing / $3.891M",
                 "type_terrain": "dure"
             },
@@ -309,7 +279,7 @@
                 "nom_opposant": "Roman Safiullin",
                 "score": "3-6, 6-2, 6-3",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-roman-safiullin/china-open-beijing-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-roman-safiullin/china-open-beijing-2024/",
                 "tournoi": "China Open - Beijing / $3.891M",
                 "type_terrain": "dure"
             },
@@ -320,7 +290,7 @@
                 "nom_opposant": "Nicolas Jarry",
                 "score": "4-6, 6-3, 6-1",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-nicolas-jarry/china-open-beijing-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-nicolas-jarry/china-open-beijing-2024/",
                 "tournoi": "China Open - Beijing / $3.891M",
                 "type_terrain": "dure"
             },
@@ -331,7 +301,7 @@
                 "nom_opposant": "Taylor Harry Fritz",
                 "score": "6-3, 6-4, 7-5",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-taylor-harry-fritz/us-open-new-york-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-taylor-harry-fritz/us-open-new-york-2024/",
                 "tournoi": "U.S. Open - New York / $33.9M",
                 "type_terrain": "dure"
             },
@@ -342,7 +312,7 @@
                 "nom_opposant": "Jack Draper",
                 "score": "7-5, 7-63, 6-2",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-jack-draper/us-open-new-york-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-jack-draper/us-open-new-york-2024/",
                 "tournoi": "U.S. Open - New York / $33.9M",
                 "type_terrain": "dure"
             },
@@ -353,7 +323,7 @@
                 "nom_opposant": "Daniil Medvedev",
                 "score": "6-2, 1-6, 6-1, 6-4",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-daniil-medvedev/us-open-new-york-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-daniil-medvedev/us-open-new-york-2024/",
                 "tournoi": "U.S. Open - New York / $33.9M",
                 "type_terrain": "dure"
             },
@@ -364,7 +334,7 @@
                 "nom_opposant": "Tommy Paul",
                 "score": "7-63, 7-65, 6-1",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-tommy-paul/us-open-new-york-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-tommy-paul/us-open-new-york-2024/",
                 "tournoi": "U.S. Open - New York / $33.9M",
                 "type_terrain": "dure"
             },
@@ -375,7 +345,7 @@
                 "nom_opposant": "Christopher O'Connell",
                 "score": "6-1, 6-4, 6-2",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-christopher-oconnell/us-open-new-york-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-christopher-oconnell/us-open-new-york-2024/",
                 "tournoi": "U.S. Open - New York / $33.9M",
                 "type_terrain": "dure"
             },
@@ -386,7 +356,7 @@
                 "nom_opposant": "Alex Michelsen",
                 "score": "6-4, 6-0, 6-2",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-alex-michelsen/us-open-new-york-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-alex-michelsen/us-open-new-york-2024/",
                 "tournoi": "U.S. Open - New York / $33.9M",
                 "type_terrain": "dure"
             },
@@ -397,7 +367,7 @@
                 "nom_opposant": "Mackenzie Mcdonald",
                 "score": "2-6, 6-2, 6-1, 6-2",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-mackenzie-mcdonald/us-open-new-york-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-mackenzie-mcdonald/us-open-new-york-2024/",
                 "tournoi": "U.S. Open - New York / $33.9M",
                 "type_terrain": "dure"
             },
@@ -408,7 +378,7 @@
                 "nom_opposant": "Frances Tiafoe",
                 "score": "7-64, 6-2",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-francis-tiafoe/western-southern-open-cincinnati-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-francis-tiafoe/western-southern-open-cincinnati-2024/",
                 "tournoi": "Western & Southern Open - Cincinnati / $7.9M",
                 "type_terrain": "dure"
             },
@@ -419,7 +389,7 @@
                 "nom_opposant": "Alexander Zverev",
                 "score": "7-69, 5-7, 7-64",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-alexander-zverev/western-southern-open-cincinnati-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-alexander-zverev/western-southern-open-cincinnati-2024/",
                 "tournoi": "Western & Southern Open - Cincinnati / $7.9M",
                 "type_terrain": "dure"
             },
@@ -430,7 +400,7 @@
                 "nom_opposant": "Andrey Rublev",
                 "score": "4-6, 7-5, 6-4",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-andrey-rublev/western-southern-open-cincinnati-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-andrey-rublev/western-southern-open-cincinnati-2024/",
                 "tournoi": "Western & Southern Open - Cincinnati / $7.9M",
                 "type_terrain": "dure"
             },
@@ -441,7 +411,7 @@
                 "nom_opposant": "Jordan Thompson",
                 "score": "Jordan Thompson - il (elle/ils) nâ€™a (ont) pas participÃ©",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-jordan-thompson/western-southern-open-cincinnati-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-jordan-thompson/western-southern-open-cincinnati-2024/",
                 "tournoi": "Western & Southern Open - Cincinnati / $7.9M",
                 "type_terrain": "dure"
             },
@@ -452,7 +422,7 @@
                 "nom_opposant": "Alex Michelsen",
                 "score": "6-4, 7-5",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-alex-michelsen/western-southern-open-cincinnati-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-alex-michelsen/western-southern-open-cincinnati-2024/",
                 "tournoi": "Western & Southern Open - Cincinnati / $7.9M",
                 "type_terrain": "dure"
             },
@@ -463,7 +433,7 @@
                 "nom_opposant": "Alejandro Tabilo",
                 "score": "6-4, 6-3",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-alejandro-tabilo/national-bank-open-montreal-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-alejandro-tabilo/national-bank-open-montreal-2024/",
                 "tournoi": "National Bank Open - Montreal / $8.1M",
                 "type_terrain": "dure"
             },
@@ -474,7 +444,7 @@
                 "nom_opposant": "Andrey Rublev",
                 "score": "6-3, 1-6, 6-2",
                 "resultat": "dÃ©faite",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/andrey-rublev-VS-jannik-sinner/national-bank-open-montreal-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/andrey-rublev-VS-jannik-sinner/national-bank-open-montreal-2024/",
                 "tournoi": "National Bank Open - Montreal / $8.1M",
                 "type_terrain": "dure"
             },
@@ -485,7 +455,7 @@
                 "nom_opposant": "Borna Coric",
                 "score": "6-2, 6-4",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-borna-coric/national-bank-open-montreal-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-borna-coric/national-bank-open-montreal-2024/",
                 "tournoi": "National Bank Open - Montreal / $8.1M",
                 "type_terrain": "dure"
             },
@@ -496,7 +466,7 @@
                 "nom_opposant": "Daniil Medvedev",
                 "score": "6-77, 6-4, 7-64, 2-6, 6-3",
                 "resultat": "dÃ©faite",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/daniil-medvedev-VS-jannik-sinner/wimbledon-london-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/daniil-medvedev-VS-jannik-sinner/wimbledon-london-2024/",
                 "tournoi": "Wimbledon - London / L50M",
                 "type_terrain": "gazon"
             },
@@ -507,7 +477,7 @@
                 "nom_opposant": "Ben Shelton",
                 "score": "6-2, 6-4, 7-69",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-ben-shelton/wimbledon-london-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-ben-shelton/wimbledon-london-2024/",
                 "tournoi": "Wimbledon - London / L50M",
                 "type_terrain": "gazon"
             },
@@ -518,7 +488,7 @@
                 "nom_opposant": "Miomir Kecmanovic",
                 "score": "6-1, 6-4, 6-2",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-miomir-kecmanovic/wimbledon-london-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-miomir-kecmanovic/wimbledon-london-2024/",
                 "tournoi": "Wimbledon - London / L50M",
                 "type_terrain": "gazon"
             },
@@ -529,7 +499,7 @@
                 "nom_opposant": "Matteo Berrettini",
                 "score": "7-63, 7-64, 2-6, 7-64",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-matteo-berrettini/wimbledon-london-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-matteo-berrettini/wimbledon-london-2024/",
                 "tournoi": "Wimbledon - London / L50M",
                 "type_terrain": "gazon"
             },
@@ -540,7 +510,7 @@
                 "nom_opposant": "Yannick Hanfmann",
                 "score": "6-3, 6-4, 3-6, 6-3",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-yannick-hanfmann/wimbledon-london-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-yannick-hanfmann/wimbledon-london-2024/",
                 "tournoi": "Wimbledon - London / L50M",
                 "type_terrain": "gazon"
             },
@@ -551,7 +521,7 @@
                 "nom_opposant": "Hubert Hurkacz",
                 "score": "7-68, 7-62",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-hubert-hurkacz/terra-wortmann-open-halle-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-hubert-hurkacz/terra-wortmann-open-halle-2024/",
                 "tournoi": "Terra Wortmann Open - Halle / $2.411M",
                 "type_terrain": "gazon"
             },
@@ -562,7 +532,7 @@
                 "nom_opposant": "Zhizhen Zhang",
                 "score": "6-4, 7-63",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-zhizhen-zhang/terra-wortmann-open-halle-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-zhizhen-zhang/terra-wortmann-open-halle-2024/",
                 "tournoi": "Terra Wortmann Open - Halle / $2.411M",
                 "type_terrain": "gazon"
             },
@@ -573,7 +543,7 @@
                 "nom_opposant": "Jan-Lennard Struff",
                 "score": "6-2, 6-71, 7-63",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-jan-lennard-struff/terra-wortmann-open-halle-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-jan-lennard-struff/terra-wortmann-open-halle-2024/",
                 "tournoi": "Terra Wortmann Open - Halle / $2.411M",
                 "type_terrain": "gazon"
             },
@@ -584,7 +554,7 @@
                 "nom_opposant": "Fabian Marozsan",
                 "score": "6-4, 6-74, 6-3",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-fabian-marozsan/terra-wortmann-open-halle-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-fabian-marozsan/terra-wortmann-open-halle-2024/",
                 "tournoi": "Terra Wortmann Open - Halle / $2.411M",
                 "type_terrain": "gazon"
             },
@@ -595,7 +565,7 @@
                 "nom_opposant": "Tallon Griekspoor",
                 "score": "6-78, 6-3, 6-2",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-tallon-griekspoor/terra-wortmann-open-halle-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-tallon-griekspoor/terra-wortmann-open-halle-2024/",
                 "tournoi": "Terra Wortmann Open - Halle / $2.411M",
                 "type_terrain": "gazon"
             },
@@ -606,7 +576,7 @@
                 "nom_opposant": "Carlos Alcaraz",
                 "score": "2-6, 6-3, 3-6, 6-4, 6-3",
                 "resultat": "dÃ©faite",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/carlos-alcaraz-garfia-VS-jannik-sinner/french-open-paris-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/carlos-alcaraz-garfia-VS-jannik-sinner/french-open-paris-2024/",
                 "tournoi": "French Open - Paris / $24.9M",
                 "type_terrain": "terre battue"
             },
@@ -617,7 +587,7 @@
                 "nom_opposant": "Grigor Dimitrov",
                 "score": "6-2, 6-4, 7-63",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-grigor-dimitrov/french-open-paris-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-grigor-dimitrov/french-open-paris-2024/",
                 "tournoi": "French Open - Paris / $24.9M",
                 "type_terrain": "terre battue"
             },
@@ -628,7 +598,7 @@
                 "nom_opposant": "Corentin Moutet",
                 "score": "2-6, 6-3, 6-2, 6-1",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-corentin-moutet/french-open-paris-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-corentin-moutet/french-open-paris-2024/",
                 "tournoi": "French Open - Paris / $24.9M",
                 "type_terrain": "terre battue"
             },
@@ -639,7 +609,7 @@
                 "nom_opposant": "Pavel Kotov",
                 "score": "6-4, 6-4, 6-4",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-pavel-kotov/french-open-paris-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-pavel-kotov/french-open-paris-2024/",
                 "tournoi": "French Open - Paris / $24.9M",
                 "type_terrain": "terre battue"
             },
@@ -650,7 +620,7 @@
                 "nom_opposant": "Richard Gasquet",
                 "score": "6-4, 6-2, 6-4",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-richard-gasquet/french-open-paris-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-richard-gasquet/french-open-paris-2024/",
                 "tournoi": "French Open - Paris / $24.9M",
                 "type_terrain": "terre battue"
             },
@@ -661,7 +631,7 @@
                 "nom_opposant": "Christopher Eubanks",
                 "score": "6-3, 6-3, 6-4",
                 "resultat": "victoire",
-                "lien_detail": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-christopher-eubanks/french-open-paris-2024/",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-christopher-eubanks/french-open-paris-2024/",
                 "tournoi": "French Open - Paris / $24.9M",
                 "type_terrain": "terre battue"
             }
