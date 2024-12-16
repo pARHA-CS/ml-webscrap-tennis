@@ -17,14 +17,14 @@ class Joueur(TypedDict):
 
 current_dir: str = os.getcwd()
 
-file_path: str = os.path.join(current_dir, "donnees", "joueurs.json")
+# file_path: str = os.path.join(current_dir, "donnees", "joueurs.json")
 
-# Charger le JSON
-with open(file_path, "r") as fichier:
-    joueurs:list[dict] = json.load(fichier)
-    assert len(joueurs) == 900
+# # Charger le JSON
+# with open(file_path, "r") as fichier:
+#     joueurs:list[dict] = json.load(fichier)
+#     assert len(joueurs) == 900
     
-liens_joueurs = (joueurs[i]['lien_joueur'] for i in range(len(joueurs)))
+# liens_joueurs = (joueurs[i]['lien_joueur'] for i in range(len(joueurs)))
 
 # Test de récupération des stats d'un joueur (Sinner)
 Sinner = "https://www.tennisendirect.net/atp/jannik-sinner/"
@@ -33,6 +33,8 @@ Alcaraz = "https://www.tennisendirect.net/atp/carlos-alcaraz-garfia/"
 Djokovic = "https://www.tennisendirect.net/atp/novak-djokovic/"
 
 reponse = get(Djokovic)
+reponse.encoding = 'utf-8'
+print(reponse.encoding)
 assert reponse.status_code == 200
 
 detail_Sinner = BeautifulSoup(reponse.text, features="lxml")
@@ -64,10 +66,10 @@ joueurs_data[Sinner_profil.nom] = {
 }
 
 nom_joueur = Sinner_profil.nom.replace(" ", "_")
-file_path_joueurs: str = os.path.join(current_dir, "donnees", f"{nom_joueur}.json")
+file_path_joueurs: str = os.path.join(current_dir, "donnees", "joueurs", f"{nom_joueur}.json")
 
 if os.path.exists(file_path_joueurs):
-    with open(file_path_joueurs, "r") as fichier:
+    with open(file_path_joueurs, "r", encoding="utf-8") as fichier:
         try:
             joueurs_data.update(json.load(fichier))
         except json.JSONDecodeError:

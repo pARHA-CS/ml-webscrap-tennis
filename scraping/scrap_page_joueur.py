@@ -60,12 +60,12 @@ def genere_profil(profil):
         pays = div.find_all("b")[1].text.strip()
         date_naissance = div.find_all("b")[2].text.strip().split(", ")[0]
         age = div.find_all("b")[2].text.strip().split(", ")[1].split(" ")[0]
-        classement_atp = div.find_all("b")[3].text.strip()
-        points = div.find_all("b")[5].text.strip()
-        primes = div.find_all("b")[6].text.strip().split(" ")[0]
-        total_match = div.find_all("b")[7].text.strip()
-        victoires = div.find_all("b")[8].text.strip()
-        taux_reussite = div.find_all("b")[9].text.strip().split(" ")[0]
+        classement_atp = div.find_all("b")[-7].text.strip()
+        points = div.find_all("b")[-5].text.strip()
+        primes = div.find_all("b")[-4].text.strip().split(" ")[0]
+        total_match = div.find_all("b")[-3].text.strip()
+        victoires = div.find_all("b")[-2].text.strip()
+        taux_reussite = div.find_all("b")[-1].text.strip().split(" ")[0]
     
     except (IndexError, AttributeError):
         nom_joueur, pays, date_naissance, age, classement_atp, points, primes, total_match, victoires, taux_reussite =(
@@ -93,6 +93,7 @@ def genere_profil(profil):
         victoires=victoires,
         taux_reussite=taux_reussite,
     )  
+  
 
 def extraire_lignes(table):
     """

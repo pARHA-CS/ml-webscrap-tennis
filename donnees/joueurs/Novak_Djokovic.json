@@ -5,12 +5,12 @@
             "pays": "Serbia",
             "date_naissance": "22.05.87",
             "age": "37",
-            "classement_atp": "187 cm",
-            "points": "2003",
-            "primes": "7",
-            "total_match": "1",
-            "victoires": "3910",
-            "taux_reussite": "180643353"
+            "classement_atp": "7",
+            "points": "3910",
+            "primes": "180643353",
+            "total_match": "1522",
+            "victoires": "1266",
+            "taux_reussite": "83.18"
         },
         "statistiques": {
             "2024_sommaire": "38/10",
@@ -175,7 +175,7 @@
                 "nom_joueur": "Novak Djokovic",
                 "nom_opposant": "Jannik Sinner",
                 "score": "7-64, 6-3",
-                "resultat": "dÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©faite",
+                "resultat": "défaite",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-novak-djokovic/shanghai-rolex-masters-shanghai-2024/",
                 "tournoi": "Shanghai Rolex Masters - Shanghai / $10.2M",
                 "type_terrain": "dure"
@@ -252,7 +252,7 @@
                 "nom_joueur": "Novak Djokovic",
                 "nom_opposant": "Alexei Popyrin",
                 "score": "6-4, 6-4, 2-6, 6-4",
-                "resultat": "dÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©faite",
+                "resultat": "défaite",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/alexei-popyrin-VS-novak-djokovic/us-open-new-york-2024/",
                 "tournoi": "U.S. Open - New York / $33.9M",
                 "type_terrain": "dure"
@@ -351,7 +351,7 @@
                 "nom_joueur": "Novak Djokovic",
                 "nom_opposant": "Carlos Alcaraz",
                 "score": "6-2, 6-2, 7-64",
-                "resultat": "dÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©faite",
+                "resultat": "défaite",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/carlos-alcaraz-garfia-VS-novak-djokovic/wimbledon-london-2024/",
                 "tournoi": "Wimbledon - London / L50M",
                 "type_terrain": "gazon"
@@ -372,7 +372,7 @@
                 "stage": "Quart de finale",
                 "nom_joueur": "Novak Djokovic",
                 "nom_opposant": "Alex De Minaur",
-                "score": "Alex De Minaur - il (elle/ils) nÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢a (ont) pas participÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©",
+                "score": "Alex De Minaur - il (elle/ils) n’a (ont) pas participé",
                 "resultat": "victoire",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/novak-djokovic-VS-alex-de-minaur/wimbledon-london-2024/",
                 "tournoi": "Wimbledon - London / L50M",
@@ -427,8 +427,8 @@
                 "stage": "Quart de finale",
                 "nom_joueur": "Novak Djokovic",
                 "nom_opposant": "Casper Ruud",
-                "score": "Novak Djokovic - il (elle/ils) nÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢a (ont) pas participÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©",
-                "resultat": "dÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©faite",
+                "score": "Novak Djokovic - il (elle/ils) n’a (ont) pas participé",
+                "resultat": "défaite",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/casper-ruud-VS-novak-djokovic/french-open-paris-2024/",
                 "tournoi": "French Open - Paris / $24.9M",
                 "type_terrain": "terre battue"
@@ -483,7 +483,7 @@
                 "nom_joueur": "Novak Djokovic",
                 "nom_opposant": "Tomas Machac",
                 "score": "6-4, 0-6, 6-1",
-                "resultat": "dÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©faite",
+                "resultat": "défaite",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/tomas-machac-VS-novak-djokovic/gonet-geneva-open-geneva-2024/",
                 "tournoi": "Gonet Geneva Open - Geneva / $651K",
                 "type_terrain": "terre battue"
@@ -516,7 +516,7 @@
                 "nom_joueur": "Novak Djokovic",
                 "nom_opposant": "Alejandro Tabilo",
                 "score": "6-2, 6-3",
-                "resultat": "dÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©faite",
+                "resultat": "défaite",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/alejandro-tabilo-VS-novak-djokovic/internazionali-bnl-ditalia-rome-2024/",
                 "tournoi": "Internazionali BNL d'Italia - Rome / $9.094M",
                 "type_terrain": "terre battue"
@@ -538,7 +538,7 @@
                 "nom_joueur": "Novak Djokovic",
                 "nom_opposant": "Casper Ruud",
                 "score": "6-4, 1-6, 6-4",
-                "resultat": "dÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©faite",
+                "resultat": "défaite",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/casper-ruud-VS-novak-djokovic/monte-carlo-rolex-masters-monte-carlo-2024/",
                 "tournoi": "Monte-Carlo Rolex Masters - Monte-Carlo / $6.642M",
                 "type_terrain": "terre battue"
@@ -582,7 +582,7 @@
                 "nom_joueur": "Novak Djokovic",
                 "nom_opposant": "Luca Nardi",
                 "score": "6-4, 3-6, 6-3",
-                "resultat": "dÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©faite",
+                "resultat": "défaite",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/luca-nardi-VS-novak-djokovic/bnp-paribas-open-indian-wells-2024/",
                 "tournoi": "BNP Paribas Open - Indian Wells / $11.9M",
                 "type_terrain": "dure"
@@ -604,7 +604,7 @@
                 "nom_joueur": "Novak Djokovic",
                 "nom_opposant": "Jannik Sinner",
                 "score": "6-1, 6-2, 6-76, 6-3",
-                "resultat": "dÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©faite",
+                "resultat": "défaite",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-novak-djokovic/australian-open-melbourne-2024/",
                 "tournoi": "Australian Open - Melbourne / A$38.9M",
                 "type_terrain": "dure"
@@ -670,7 +670,7 @@
                 "nom_joueur": "Novak Djokovic",
                 "nom_opposant": "Alex De Minaur",
                 "score": "6-4, 6-4",
-                "resultat": "dÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©faite",
+                "resultat": "défaite",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/alex-de-minaur-VS-novak-djokovic/united-cup-australia-2024/",
                 "tournoi": "United Cup - Australia / $5M",
                 "type_terrain": "dure"
@@ -703,7 +703,7 @@
                 "nom_joueur": "Novak Djokovic",
                 "nom_opposant": "Jannik Sinner",
                 "score": "6-2, 2-6, 7-5",
-                "resultat": "dÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©faite",
+                "resultat": "défaite",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-novak-djokovic/davis-cup-world-group-sf-ita-srb-2023/",
                 "tournoi": "Davis Cup, World Group, SF, ITA-SRB 2-1 / ",
                 "type_terrain": "salle"

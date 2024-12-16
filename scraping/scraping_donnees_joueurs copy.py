@@ -9,6 +9,8 @@ from typing import TypedDict
 import os
 import time
 from typing import Tuple
+import scrap_page_joueur as spj
+
 
 class Joueur(TypedDict):
     rank: str

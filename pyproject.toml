@@ -38,4 +38,6 @@ dependencies = [
     "threadpoolctl==3.5.0",
     "typing==3.7.4.3",
     "urllib3==2.2.3",
+    "pytest-cov>=6.0.0",
+    "types-requests>=2.32.0.20241016",
 ]

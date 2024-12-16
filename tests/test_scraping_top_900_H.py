@@ -1,10 +1,6 @@
-from scraping.scraping_top_900_H import (
-    extraire_lignes,
-    genere_ligne,
-    Ligne
-    )
-import pytest
+from scraping.scraping_top_900_H import extraire_lignes, genere_ligne, Ligne
 from bs4 import BeautifulSoup
+import pytest
 
 def test_genere_ligne_valide():
     # Maquette d'une ligne HTML valide

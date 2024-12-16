@@ -98,6 +98,7 @@ current_dir: str = os.getcwd()
 
 file_path: str = os.path.join(current_dir, "donnees", "joueurs.json")
 
+print(f"Chargement du module depuis : {__file__}")
 
 with open(file_path, "w") as fichier:
     fichier.write(
@@ -105,3 +106,4 @@ with open(file_path, "w") as fichier:
             [joueur.__dict__ for joueur in joueurs], ensure_ascii=False, indent=4
         )
     )
+
