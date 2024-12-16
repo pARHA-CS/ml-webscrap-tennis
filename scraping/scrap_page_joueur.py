@@ -137,7 +137,7 @@ def genere_statistiques_dict(ligne):
         f"{annee}_acryl": acryl
     }
 
-def generer_statistiques_agregrees(lignes_stats):
+def genere_statistiques_agregrees(lignes_stats):
     """
     Agrège les statistiques d'un joueur en un seul dictionnaire.
 

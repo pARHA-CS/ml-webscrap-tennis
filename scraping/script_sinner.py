@@ -32,7 +32,7 @@ Zverev = "https://www.tennisendirect.net/atp/alexander-zverev/"
 Alcaraz = "https://www.tennisendirect.net/atp/carlos-alcaraz-garfia/"
 Djokovic = "https://www.tennisendirect.net/atp/novak-djokovic/"
 
-reponse = get(Djokovic)
+reponse = get(Sinner)
 reponse.encoding = 'utf-8'
 print(reponse.encoding)
 assert reponse.status_code == 200
@@ -51,7 +51,7 @@ assert len(statistiques) == 1
 Sinner_profil = spj.genere_profil(profil)
 
 lignes_stats = spj.extraire_lignes(statistiques[0])
-Sinner_statistiques_agregees = spj.generer_statistiques_agregrees(lignes_stats)
+Sinner_statistiques_agregees = spj.genere_statistiques_agregrees(lignes_stats)
 
 ligne_derniers_matchs = spj.extraire_lignes(derniers_match)
 Sinner_derniers_matchs = spj.genere_derniers_matchs(ligne_derniers_matchs)
