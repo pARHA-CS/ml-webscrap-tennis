@@ -14,7 +14,7 @@ with open(file_path, "r") as fichier:
     joueurs: list[dict] = json.load(fichier)
     assert len(joueurs) == 900
 
-genereateur_joueurs = (joueurs[i] for i in range(10))
+generateur_joueurs = (joueurs[i] for i in range(10))
 
 if os.path.exists(output_file):
     with open(output_file, "r", encoding="utf-8") as fichier:
@@ -26,7 +26,7 @@ if os.path.exists(output_file):
 else:
     joueurs_data = {}
 
-for joueur in genereateur_joueurs:
+for joueur in generateur_joueurs:
     nom_joueur = joueur['nom_joueur'].replace(" ", "_")
     lien = joueur['lien_joueur']
     
@@ -34,7 +34,7 @@ for joueur in genereateur_joueurs:
     
     try:
         reponse = get(lien)
-        reponse.raise_for_status()  
+        assert reponse.status_code == 200, f"Erreur HTTP {reponse.status_code}: {lien}"
         detail_joueur = BeautifulSoup(reponse.text, features="lxml")
         
         
