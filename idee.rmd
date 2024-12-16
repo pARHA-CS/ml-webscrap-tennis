@@ -1,0 +1,24 @@
+je me suis perdu : 
+pour ce projet, il ya plusieurs étapes :
+
+WEBSCRAPPING :
+collecte de données 
+=> création de base de données 
+
+MACHINE LEARNING :
+on fait de la prédiction
+=> entrainement de données 
+
+pour la création de bdd:
+autant faire plusieurs tables en fonction de ce qu'on fait 
+
+tables :
+- joueurs : 
+ id_joueur | nom | prénom | classement_atp | nationalité | date_naissance
+
+- matchs :
+id_match | date | joueur_A | joueur_B | résultat | surface | tournoi
+
+- statistiques :
+id_match | id_joueurs | aces | doubles_fautes | points_1er_service | total_points
+
