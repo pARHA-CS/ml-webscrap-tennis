@@ -1,3 +1,8 @@
+"""Script pour collecter les données de chaque joueur en scrapant leur page 
+
+    Return:
+        Un json avec les données de chaque joueurs 
+"""
 import os
 import json
 import time

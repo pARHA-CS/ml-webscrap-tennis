@@ -1,3 +1,5 @@
+""" Script pour essayer de collecter les données sur un joueur
+"""
 from requests import get
 from bs4 import BeautifulSoup
 import json
