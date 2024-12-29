@@ -7,6 +7,8 @@ from typing import TypedDict
 import os
 import src.scraping.scrap_page_joueur as spj
 
+
+
 class Joueur(TypedDict):
     rank: str
     pays: str
@@ -68,7 +70,7 @@ joueurs_data[Sinner_profil.nom] = {
 }
 
 nom_joueur = Sinner_profil.nom.replace(" ", "_")
-file_path_joueurs: str = os.path.join(current_dir, "donnees", "joueurs", f"{nom_joueur}.json")
+file_path_joueurs: str = os.path.join(current_dir, "data", "joueurs", f"{nom_joueur}.json")
 
 if os.path.exists(file_path_joueurs):
     with open(file_path_joueurs, "r", encoding="utf-8") as fichier:

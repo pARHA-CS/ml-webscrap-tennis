@@ -12,14 +12,14 @@ import src.scraping.scrap_page_joueur as spj
 
 
 current_dir: str = os.getcwd()
-file_path: str = os.path.join(current_dir, "donnees", "joueurs.json")
-output_file: str = os.path.join(current_dir, "donnees", "detail_joueurs.json")
+file_path: str = os.path.join(current_dir, "data", "joueurs.json")
+output_file: str = os.path.join(current_dir, "data", "detail_joueurs.json")
 
 with open(file_path, "r") as fichier:
     joueurs: list[dict] = json.load(fichier)
     assert len(joueurs) == 900
 
-generateur_joueurs = (joueurs[i] for i in range(10))
+generateur_joueurs = (joueurs[i] for i in range(100)) # génère les 100 premiers joueurs 
 
 if os.path.exists(output_file):
     with open(output_file, "r", encoding="utf-8") as fichier:

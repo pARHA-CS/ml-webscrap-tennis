@@ -96,7 +96,7 @@ joueurs = [genere_ligne(ligne) for ligne in lignes_inter if genere_ligne(ligne)]
 
 current_dir: str = os.getcwd()
 
-file_path: str = os.path.join(current_dir, "donnees", "joueurs.json")
+file_path: str = os.path.join(current_dir, "data", "joueurs.json")
 
 print(f"Chargement du module depuis : {__file__}")
 
