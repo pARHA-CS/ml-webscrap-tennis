@@ -1,252 +1,252 @@
 {
     "match_1": {
-        "lien_match": "https://www.tennisendirect.net/atp/match/andrey-rublev-VS-fabian-marozsan/plava-laguna-croatia-open-umag-2024/",
+        "lien_match": "https://www.tennisendirect.net/atp/match/novak-djokovic-VS-roman-safiullin/monte-carlo-rolex-masters-monte-carlo-2024/",
         "joueur_gagnant": {
-            "nom_joueur": "Andrey Rublev",
-            "premier_service": "46/84 (55%)",
-            "pnts_gagnes_ps": "34/46 (74%)",
-            "pnts_gagnes_ss": "21/38 (55%)",
-            "balles_break_gagnees": "6/15 (40%)",
-            "retours_gagnes": "43/98 (44%)",
-            "total_points_gagnes": "98/182 (54%)",
+            "nom_joueur": "Novak Djokovic",
+            "premier_service": "22/34 (65%)",
+            "pnts_gagnes_ps": "17/22 (77%)",
+            "pnts_gagnes_ss": "11/12 (92%)",
+            "balles_break_gagnees": "NA",
+            "retours_gagnes": "34/61 (56%)",
+            "total_points_gagnes": "62/95 (65%)",
             "double_fautes": "0",
-            "aces": "10"
+            "aces": "1"
         },
         "joueur_perdant": {
-            "nom_joueur": "Fabian Marozsan",
-            "premier_service": "51/98 (52%)",
-            "pnts_gagnes_ps": "37/51 (73%)",
-            "pnts_gagnes_ss": "18/47 (38%)",
-            "balles_break_gagnees": "3/6 (50%)",
-            "retours_gagnes": "29/84 (35%)",
-            "total_points_gagnes": "84/182 (46%)",
-            "double_fautes": "4",
-            "aces": "4"
+            "nom_joueur": "Roman Safiullin",
+            "premier_service": "26/61 (43%)",
+            "pnts_gagnes_ps": "16/26 (62%)",
+            "pnts_gagnes_ss": "11/35 (31%)",
+            "balles_break_gagnees": "NA",
+            "retours_gagnes": "6/34 (18%)",
+            "total_points_gagnes": "33/95 (35%)",
+            "double_fautes": "2",
+            "aces": "1"
         }
     },
     "match_2": {
-        "lien_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-alex-de-minaur/davis-cup-world-group-sf-ita-aus-2024/",
+        "lien_match": "https://www.tennisendirect.net/atp/match/alexander-zverev-VS-tallon-griekspoor/rolex-paris-masters-paris-2024/",
         "joueur_gagnant": {
-            "nom_joueur": "Jannik Sinner",
-            "premier_service": "37/57 (65%)",
-            "pnts_gagnes_ps": "30/37 (81%)",
-            "pnts_gagnes_ss": "9/20 (45%)",
-            "balles_break_gagnees": "3/6 (50%)",
-            "retours_gagnes": "26/59 (44%)",
-            "total_points_gagnes": "65/116 (56%)",
-            "double_fautes": "0",
-            "aces": "4"
+            "nom_joueur": "Alexander Zverev",
+            "premier_service": "42/68 (62%)",
+            "pnts_gagnes_ps": "36/42 (86%)",
+            "pnts_gagnes_ss": "16/26 (62%)",
+            "balles_break_gagnees": "1/1 (100%)",
+            "retours_gagnes": "19/62 (31%)",
+            "total_points_gagnes": "71/130 (55%)",
+            "double_fautes": "2",
+            "aces": "9"
         },
         "joueur_perdant": {
-            "nom_joueur": "Alex De Minaur",
-            "premier_service": "34/59 (58%)",
-            "pnts_gagnes_ps": "21/34 (62%)",
-            "pnts_gagnes_ss": "12/25 (48%)",
-            "balles_break_gagnees": "1/1 (100%)",
-            "retours_gagnes": "18/57 (32%)",
-            "total_points_gagnes": "51/116 (44%)",
-            "double_fautes": "1",
-            "aces": "5"
+            "nom_joueur": "Tallon Griekspoor",
+            "premier_service": "40/62 (65%)",
+            "pnts_gagnes_ps": "33/40 (83%)",
+            "pnts_gagnes_ss": "10/22 (45%)",
+            "balles_break_gagnees": "0/3 (0%)",
+            "retours_gagnes": "16/68 (24%)",
+            "total_points_gagnes": "59/130 (45%)",
+            "double_fautes": "4",
+            "aces": "8"
         }
     },
     "match_3": {
-        "lien_match": "https://www.tennisendirect.net/atp/match/taylor-harry-fritz-VS-christopher-oconnell/wimbledon-london-2024/",
+        "lien_match": "https://www.tennisendirect.net/atp/match/alexander-zverev-VS-francis-tiafoe/laver-cup-berlin-2024/",
         "joueur_gagnant": {
-            "nom_joueur": "Taylor Harry Fritz",
-            "premier_service": "38/63 (60%)",
-            "pnts_gagnes_ps": "36/38 (95%)",
-            "pnts_gagnes_ss": "17/25 (68%)",
-            "balles_break_gagnees": "5/8 (63%)",
-            "retours_gagnes": "43/88 (49%)",
-            "total_points_gagnes": "96/151 (64%)",
-            "double_fautes": "2",
-            "aces": "18"
+            "nom_joueur": "Alexander Zverev",
+            "premier_service": "63/85 (74%)",
+            "pnts_gagnes_ps": "50/63 (79%)",
+            "pnts_gagnes_ss": "10/22 (45%)",
+            "balles_break_gagnees": "2/9 (22%)",
+            "retours_gagnes": "36/96 (38%)",
+            "total_points_gagnes": "96/181 (53%)",
+            "double_fautes": "0",
+            "aces": "12"
         },
         "joueur_perdant": {
-            "nom_joueur": "Christopher O'Connell",
-            "premier_service": "56/88 (64%)",
-            "pnts_gagnes_ps": "33/56 (59%)",
-            "pnts_gagnes_ss": "12/32 (38%)",
-            "balles_break_gagnees": "0/2 (0%)",
-            "retours_gagnes": "10/63 (16%)",
-            "total_points_gagnes": "55/151 (36%)",
+            "nom_joueur": "Frances Tiafoe",
+            "premier_service": "53/96 (55%)",
+            "pnts_gagnes_ps": "39/53 (74%)",
+            "pnts_gagnes_ss": "21/43 (49%)",
+            "balles_break_gagnees": "1/2 (50%)",
+            "retours_gagnes": "25/85 (29%)",
+            "total_points_gagnes": "85/181 (47%)",
             "double_fautes": "2",
-            "aces": "3"
+            "aces": "7"
         }
     },
     "match_4": {
-        "lien_match": "https://www.tennisendirect.net/atp/match/andrey-rublev-VS-matteo-arnaldi/national-bank-open-montreal-2024/",
+        "lien_match": "https://www.tennisendirect.net/atp/match/taylor-harry-fritz-VS-alex-de-minaur/davis-cup-world-group-qf-usa-aus-2024/",
         "joueur_gagnant": {
-            "nom_joueur": "Andrey Rublev",
-            "premier_service": "34/52 (65%)",
+            "nom_joueur": "Taylor Harry Fritz",
+            "premier_service": "34/59 (58%)",
             "pnts_gagnes_ps": "27/34 (79%)",
-            "pnts_gagnes_ss": "11/18 (61%)",
-            "balles_break_gagnees": "3/3 (100%)",
-            "retours_gagnes": "22/53 (42%)",
-            "total_points_gagnes": "60/105 (57%)",
-            "double_fautes": "1",
-            "aces": "4"
-        },
-        "joueur_perdant": {
-            "nom_joueur": "Matteo Arnaldi",
-            "premier_service": "26/53 (49%)",
-            "pnts_gagnes_ps": "17/26 (65%)",
-            "pnts_gagnes_ss": "14/27 (52%)",
-            "balles_break_gagnees": "0/1 (0%)",
-            "retours_gagnes": "14/52 (27%)",
-            "total_points_gagnes": "45/105 (43%)",
-            "double_fautes": "1",
-            "aces": "2"
-        }
-    },
-    "match_5": {
-        "lien_match": "https://www.tennisendirect.net/atp/match/jannik-sinner-VS-tommy-paul/us-open-new-york-2024/",
-        "joueur_gagnant": {
-            "nom_joueur": "Jannik Sinner",
-            "premier_service": "48/98 (49%)",
-            "pnts_gagnes_ps": "39/48 (81%)",
-            "pnts_gagnes_ss": "28/50 (56%)",
-            "balles_break_gagnees": "4/14 (29%)",
-            "retours_gagnes": "49/111 (44%)",
-            "total_points_gagnes": "116/209 (56%)",
-            "double_fautes": "1",
+            "pnts_gagnes_ss": "15/25 (60%)",
+            "balles_break_gagnees": "3/9 (33%)",
+            "retours_gagnes": "22/55 (40%)",
+            "total_points_gagnes": "64/114 (56%)",
+            "double_fautes": "0",
             "aces": "10"
         },
         "joueur_perdant": {
-            "nom_joueur": "Tommy Paul",
-            "premier_service": "67/111 (60%)",
-            "pnts_gagnes_ps": "43/67 (64%)",
-            "pnts_gagnes_ss": "19/44 (43%)",
-            "balles_break_gagnees": "2/4 (50%)",
-            "retours_gagnes": "31/98 (32%)",
-            "total_points_gagnes": "93/209 (44%)",
+            "nom_joueur": "Alex De Minaur",
+            "premier_service": "29/55 (53%)",
+            "pnts_gagnes_ps": "23/29 (79%)",
+            "pnts_gagnes_ss": "10/26 (38%)",
+            "balles_break_gagnees": "1/4 (25%)",
+            "retours_gagnes": "17/59 (29%)",
+            "total_points_gagnes": "50/114 (44%)",
             "double_fautes": "3",
-            "aces": "4"
+            "aces": "12"
         }
     },
-    "match_6": {
-        "lien_match": "https://www.tennisendirect.net/atp/match/daniil-medvedev-VS-alexandre-muller/wimbledon-london-2024/",
+    "match_5": {
+        "lien_match": "https://www.tennisendirect.net/atp/match/jakub-mensik-VS-grigor-dimitrov/shanghai-rolex-masters-shanghai-2024/",
         "joueur_gagnant": {
-            "nom_joueur": "Daniil Medvedev",
-            "premier_service": "95/148 (64%)",
-            "pnts_gagnes_ps": "71/95 (75%)",
-            "pnts_gagnes_ss": "32/53 (60%)",
-            "balles_break_gagnees": "4/12 (33%)",
-            "retours_gagnes": "62/162 (38%)",
-            "total_points_gagnes": "165/310 (53%)",
-            "double_fautes": "5",
-            "aces": "14"
+            "nom_joueur": "Jakub Mensik",
+            "premier_service": "54/89 (61%)",
+            "pnts_gagnes_ps": "42/54 (78%)",
+            "pnts_gagnes_ss": "14/35 (40%)",
+            "balles_break_gagnees": "3/15 (20%)",
+            "retours_gagnes": "34/91 (37%)",
+            "total_points_gagnes": "90/180 (50%)",
+            "double_fautes": "6",
+            "aces": "10"
         },
         "joueur_perdant": {
-            "nom_joueur": "Alexandre Muller",
-            "premier_service": "104/162 (64%)",
-            "pnts_gagnes_ps": "74/104 (71%)",
-            "pnts_gagnes_ss": "26/58 (45%)",
-            "balles_break_gagnees": "2/7 (29%)",
-            "retours_gagnes": "45/148 (30%)",
-            "total_points_gagnes": "145/310 (47%)",
-            "double_fautes": "4",
+            "nom_joueur": "Grigor Dimitrov",
+            "premier_service": "53/91 (58%)",
+            "pnts_gagnes_ps": "35/53 (66%)",
+            "pnts_gagnes_ss": "22/38 (58%)",
+            "balles_break_gagnees": "2/4 (50%)",
+            "retours_gagnes": "33/89 (37%)",
+            "total_points_gagnes": "90/180 (50%)",
+            "double_fautes": "3",
             "aces": "5"
         }
     },
-    "match_7": {
-        "lien_match": "https://www.tennisendirect.net/atp/match/daniil-medvedev-VS-alex-de-minaur/nitto-atp-finals-turin-2024/",
+    "match_6": {
+        "lien_match": "https://www.tennisendirect.net/atp/match/bu-yunchaokete-VS-andrey-rublev/china-open-beijing-2024/",
         "joueur_gagnant": {
-            "nom_joueur": "Daniil Medvedev",
-            "premier_service": "32/47 (68%)",
-            "pnts_gagnes_ps": "27/32 (84%)",
-            "pnts_gagnes_ss": "11/15 (73%)",
-            "balles_break_gagnees": "NA",
-            "retours_gagnes": "25/62 (40%)",
-            "total_points_gagnes": "63/109 (58%)",
+            "nom_joueur": "Bu Yunchaokete",
+            "premier_service": "40/71 (56%)",
+            "pnts_gagnes_ps": "32/40 (80%)",
+            "pnts_gagnes_ss": "19/31 (61%)",
+            "balles_break_gagnees": "2/3 (67%)",
+            "retours_gagnes": "20/60 (33%)",
+            "total_points_gagnes": "71/131 (54%)",
+            "double_fautes": "1",
+            "aces": "6"
+        },
+        "joueur_perdant": {
+            "nom_joueur": "Andrey Rublev",
+            "premier_service": "37/60 (62%)",
+            "pnts_gagnes_ps": "28/37 (76%)",
+            "pnts_gagnes_ss": "12/23 (52%)",
+            "balles_break_gagnees": "0/4 (0%)",
+            "retours_gagnes": "20/71 (28%)",
+            "total_points_gagnes": "60/131 (46%)",
+            "double_fautes": "0",
+            "aces": "6"
+        }
+    },
+    "match_7": {
+        "lien_match": "https://www.tennisendirect.net/atp/match/arthur-fils-VS-alexander-zverev/hamburg-open-hamburg-2024/",
+        "joueur_gagnant": {
+            "nom_joueur": "Arthur Fils",
+            "premier_service": "97/147 (66%)",
+            "pnts_gagnes_ps": "67/97 (69%)",
+            "pnts_gagnes_ss": "23/50 (46%)",
+            "balles_break_gagnees": "1/4 (25%)",
+            "retours_gagnes": "42/111 (38%)",
+            "total_points_gagnes": "132/258 (51%)",
+            "double_fautes": "2",
+            "aces": "0"
+        },
+        "joueur_perdant": {
+            "nom_joueur": "Alexander Zverev",
+            "premier_service": "74/111 (67%)",
+            "pnts_gagnes_ps": "49/74 (66%)",
+            "pnts_gagnes_ss": "20/37 (54%)",
+            "balles_break_gagnees": "1/22 (5%)",
+            "retours_gagnes": "57/147 (39%)",
+            "total_points_gagnes": "126/258 (49%)",
+            "double_fautes": "2",
+            "aces": "8"
+        }
+    },
+    "match_8": {
+        "lien_match": "https://www.tennisendirect.net/atp/match/carlos-alcaraz-garfia-VS-hady-habib/olympics-paris-2024/",
+        "joueur_gagnant": {
+            "nom_joueur": "Carlos Alcaraz",
+            "premier_service": "33/47 (70%)",
+            "pnts_gagnes_ps": "26/33 (79%)",
+            "pnts_gagnes_ss": "10/14 (71%)",
+            "balles_break_gagnees": "4/13 (31%)",
+            "retours_gagnes": "32/63 (51%)",
+            "total_points_gagnes": "68/110 (62%)",
+            "double_fautes": "2",
+            "aces": "5"
+        },
+        "joueur_perdant": {
+            "nom_joueur": "Hady Habib",
+            "premier_service": "40/63 (63%)",
+            "pnts_gagnes_ps": "21/40 (53%)",
+            "pnts_gagnes_ss": "10/23 (43%)",
+            "balles_break_gagnees": "0/4 (0%)",
+            "retours_gagnes": "11/47 (23%)",
+            "total_points_gagnes": "42/110 (38%)",
             "double_fautes": "3",
+            "aces": "3"
+        }
+    },
+    "match_9": {
+        "lien_match": "https://www.tennisendirect.net/atp/match/fabian-marozsan-VS-alex-de-minaur/miami-open-miami-2024/",
+        "joueur_gagnant": {
+            "nom_joueur": "Fabian Marozsan",
+            "premier_service": "59/80 (74%)",
+            "pnts_gagnes_ps": "37/59 (63%)",
+            "pnts_gagnes_ss": "12/21 (57%)",
+            "balles_break_gagnees": "3/7 (43%)",
+            "retours_gagnes": "22/62 (35%)",
+            "total_points_gagnes": "71/142 (50%)",
+            "double_fautes": "2",
             "aces": "3"
         },
         "joueur_perdant": {
             "nom_joueur": "Alex De Minaur",
-            "premier_service": "42/62 (68%)",
-            "pnts_gagnes_ps": "24/42 (57%)",
-            "pnts_gagnes_ss": "13/20 (65%)",
-            "balles_break_gagnees": "NA",
-            "retours_gagnes": "9/47 (19%)",
-            "total_points_gagnes": "46/109 (42%)",
-            "double_fautes": "1",
-            "aces": "1"
-        }
-    },
-    "match_8": {
-        "lien_match": "https://www.tennisendirect.net/atp/match/carlos-alcaraz-garfia-VS-felix-auger-aliassime/olympics-paris-2024/",
-        "joueur_gagnant": {
-            "nom_joueur": "Carlos Alcaraz",
-            "premier_service": "22/38 (58%)",
-            "pnts_gagnes_ps": "17/22 (77%)",
-            "pnts_gagnes_ss": "11/16 (69%)",
-            "balles_break_gagnees": "NA",
-            "retours_gagnes": "30/55 (55%)",
-            "total_points_gagnes": "58/93 (62%)",
+            "premier_service": "37/62 (60%)",
+            "pnts_gagnes_ps": "24/37 (65%)",
+            "pnts_gagnes_ss": "16/25 (64%)",
+            "balles_break_gagnees": "3/5 (60%)",
+            "retours_gagnes": "31/80 (39%)",
+            "total_points_gagnes": "71/142 (50%)",
             "double_fautes": "2",
-            "aces": "2"
-        },
-        "joueur_perdant": {
-            "nom_joueur": "Felix Auger Aliassime",
-            "premier_service": "35/55 (64%)",
-            "pnts_gagnes_ps": "21/35 (60%)",
-            "pnts_gagnes_ss": "4/20 (20%)",
-            "balles_break_gagnees": "NA",
-            "retours_gagnes": "10/38 (26%)",
-            "total_points_gagnes": "35/93 (38%)",
-            "double_fautes": "4",
-            "aces": "1"
-        }
-    },
-    "match_9": {
-        "lien_match": "https://www.tennisendirect.net/atp/match/brandon-nakashime-VS-taylor-harry-fritz/western-southern-open-cincinnati-2024/",
-        "joueur_gagnant": {
-            "nom_joueur": "Brandon Nakashima",
-            "premier_service": "67/101 (66%)",
-            "pnts_gagnes_ps": "52/67 (78%)",
-            "pnts_gagnes_ss": "21/34 (62%)",
-            "balles_break_gagnees": "1/6 (17%)",
-            "retours_gagnes": "23/92 (25%)",
-            "total_points_gagnes": "96/193 (50%)",
-            "double_fautes": "1",
-            "aces": "15"
-        },
-        "joueur_perdant": {
-            "nom_joueur": "Taylor Harry Fritz",
-            "premier_service": "59/92 (64%)",
-            "pnts_gagnes_ps": "49/59 (83%)",
-            "pnts_gagnes_ss": "20/33 (61%)",
-            "balles_break_gagnees": "1/5 (20%)",
-            "retours_gagnes": "28/101 (28%)",
-            "total_points_gagnes": "97/193 (50%)",
-            "double_fautes": "6",
-            "aces": "13"
+            "aces": "4"
         }
     },
     "match_10": {
-        "lien_match": "https://www.tennisendirect.net/atp/match/novak-djokovic-VS-jiri-lehecka/united-cup-australia-2024/",
+        "lien_match": "https://www.tennisendirect.net/atp/match/grigor-dimitrov-VS-dusan-lajovic/wimbledon-london-2024/",
         "joueur_gagnant": {
-            "nom_joueur": "Novak Djokovic",
-            "premier_service": "49/80 (61%)",
-            "pnts_gagnes_ps": "36/49 (73%)",
-            "pnts_gagnes_ss": "19/31 (61%)",
-            "balles_break_gagnees": "6/11 (55%)",
-            "retours_gagnes": "36/75 (48%)",
-            "total_points_gagnes": "91/155 (59%)",
+            "nom_joueur": "Grigor Dimitrov",
+            "premier_service": "48/84 (57%)",
+            "pnts_gagnes_ps": "44/48 (92%)",
+            "pnts_gagnes_ss": "21/36 (58%)",
+            "balles_break_gagnees": "4/4 (100%)",
+            "retours_gagnes": "34/82 (41%)",
+            "total_points_gagnes": "99/166 (60%)",
             "double_fautes": "2",
-            "aces": "3"
+            "aces": "16"
         },
         "joueur_perdant": {
-            "nom_joueur": "Jiri Lehecka",
-            "premier_service": "47/75 (63%)",
-            "pnts_gagnes_ps": "30/47 (64%)",
-            "pnts_gagnes_ss": "9/28 (32%)",
-            "balles_break_gagnees": "2/5 (40%)",
-            "retours_gagnes": "25/80 (31%)",
-            "total_points_gagnes": "64/155 (41%)",
-            "double_fautes": "1",
-            "aces": "4"
+            "nom_joueur": "Dusan Lajovic",
+            "premier_service": "58/82 (71%)",
+            "pnts_gagnes_ps": "38/58 (66%)",
+            "pnts_gagnes_ss": "10/24 (42%)",
+            "balles_break_gagnees": "1/4 (25%)",
+            "retours_gagnes": "19/84 (23%)",
+            "total_points_gagnes": "67/166 (40%)",
+            "double_fautes": "0",
+            "aces": "3"
         }
     }
 }
