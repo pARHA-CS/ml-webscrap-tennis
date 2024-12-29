@@ -7,7 +7,7 @@
             "age": "23",
             "classement_atp": "1",
             "points": "11830",
-            "primes": "17043434",
+            "primes": "33989584",
             "total_match": "491",
             "victoires": "356",
             "taux_reussite": "72.51"
@@ -645,12 +645,19 @@
             "age": "27",
             "classement_atp": "2",
             "points": "7915",
-            "primes": "38548820",
-            "total_match": "836",
-            "victoires": "567",
-            "taux_reussite": "67.82"
+            "primes": "47543924",
+            "total_match": "837",
+            "victoires": "568",
+            "taux_reussite": "67.86"
         },
         "statistiques": {
+            "2025_sommaire": "1/0",
+            "2025_dure": "1/0",
+            "2025_terre_battue": "0/0",
+            "2025_salle": "0/0",
+            "2025_carpet": "0/0",
+            "2025_gazon": "0/0",
+            "2025_acryl": "0/0",
             "2024_sommaire": "69/21",
             "2024_dure": "29/10",
             "2024_terre_battue": "23/6",
@@ -751,6 +758,17 @@
             "2011_acryl": "0/0"
         },
         "matchs": [
+            {
+                "date": "29.12.24",
+                "stage": "",
+                "nom_joueur": "Alexander Zverev",
+                "nom_opposant": "Thiago Moura Monteiro",
+                "score": "6-4, 6-4",
+                "resultat": "victoire",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/alexander-zverev-VS-thiago-moura-monteiro/united-cup-australia-2025/",
+                "tournoi": "United Cup - Australia / ",
+                "type_terrain": "dure"
+            },
             {
                 "date": "16.11.24",
                 "stage": "Demi-finale",
@@ -1289,17 +1307,6 @@
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/alexander-zverev-VS-alex-de-minaur/french-open-paris-2024/",
                 "tournoi": "French Open - Paris / $24.9M",
                 "type_terrain": "terre battue"
-            },
-            {
-                "date": "03.06.24",
-                "stage": "4e tour",
-                "nom_joueur": "Alexander Zverev",
-                "nom_opposant": "Holger Rune",
-                "score": "4-6, 6-1, 5-7, 7-62, 6-2",
-                "resultat": "victoire",
-                "lien_detail_match": "https://www.tennisendirect.net/atp/match/alexander-zverev-VS-holger-vitus-nodskov-rune/french-open-paris-2024/",
-                "tournoi": "French Open - Paris / $24.9M",
-                "type_terrain": "terre battue"
             }
         ]
     },
@@ -1311,7 +1318,7 @@
             "age": "21",
             "classement_atp": "3",
             "points": "7010",
-            "primes": "27026147",
+            "primes": "36876485",
             "total_match": "372",
             "victoires": "292",
             "taux_reussite": "78.49"
@@ -1928,7 +1935,7 @@
             "age": "27",
             "classement_atp": "4",
             "points": "5100",
-            "primes": "14081358",
+            "primes": "21087553",
             "total_match": "694",
             "victoires": "440",
             "taux_reussite": "63.4"
@@ -2580,7 +2587,7 @@
             "age": "28",
             "classement_atp": "5",
             "points": "5030",
-            "primes": "38148405",
+            "primes": "43764163",
             "total_match": "774",
             "victoires": "548",
             "taux_reussite": "70.8"
@@ -3239,12 +3246,19 @@
             "age": "26",
             "classement_atp": "6",
             "points": "4255",
-            "primes": "16526514",
-            "total_match": "654",
-            "victoires": "418",
-            "taux_reussite": "63.91"
+            "primes": "21591822",
+            "total_match": "655",
+            "victoires": "419",
+            "taux_reussite": "63.97"
         },
         "statistiques": {
+            "2025_sommaire": "1/0",
+            "2025_dure": "1/0",
+            "2025_terre_battue": "0/0",
+            "2025_salle": "0/0",
+            "2025_carpet": "0/0",
+            "2025_gazon": "0/0",
+            "2025_acryl": "0/0",
             "2024_sommaire": "52/26",
             "2024_dure": "21/10",
             "2024_terre_battue": "25/7",
@@ -3331,6 +3345,17 @@
             "2013_acryl": "0/0"
         },
         "matchs": [
+            {
+                "date": "29.12.24",
+                "stage": "",
+                "nom_joueur": "Casper Ruud",
+                "nom_opposant": "Tomas Machac",
+                "score": "7-66, 5-7, 6-4",
+                "resultat": "victoire",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/casper-ruud-VS-tomas-machac/united-cup-australia-2025/",
+                "tournoi": "United Cup - Australia / ",
+                "type_terrain": "dure"
+            },
             {
                 "date": "16.11.24",
                 "stage": "Demi-finale",
@@ -3707,23 +3732,23 @@
             },
             {
                 "date": "25.05.24",
-                "stage": "Demi-finale",
-                "nom_joueur": "Casper Ruud",
-                "nom_opposant": "Flavio Cobolli",
-                "score": "1-6, 6-1, 7-64",
-                "resultat": "victoire",
-                "lien_detail_match": "https://www.tennisendirect.net/atp/match/casper-ruud-VS-flavio-cobolli/gonet-geneva-open-geneva-2024/",
-                "tournoi": "Gonet Geneva Open - Geneva / $651K",
-                "type_terrain": "terre battue"
-            },
-            {
-                "date": "25.05.24",
                 "stage": "Finale",
                 "nom_joueur": "Casper Ruud",
                 "nom_opposant": "Tomas Machac",
                 "score": "7-5, 6-3",
                 "resultat": "victoire",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/casper-ruud-VS-tomas-machac/gonet-geneva-open-geneva-2024/",
+                "tournoi": "Gonet Geneva Open - Geneva / $651K",
+                "type_terrain": "terre battue"
+            },
+            {
+                "date": "25.05.24",
+                "stage": "Demi-finale",
+                "nom_joueur": "Casper Ruud",
+                "nom_opposant": "Flavio Cobolli",
+                "score": "1-6, 6-1, 7-64",
+                "resultat": "victoire",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/casper-ruud-VS-flavio-cobolli/gonet-geneva-open-geneva-2024/",
                 "tournoi": "Gonet Geneva Open - Geneva / $651K",
                 "type_terrain": "terre battue"
             },
@@ -3869,17 +3894,6 @@
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/casper-ruud-VS-novak-djokovic/monte-carlo-rolex-masters-monte-carlo-2024/",
                 "tournoi": "Monte-Carlo Rolex Masters - Monte-Carlo / $6.642M",
                 "type_terrain": "terre battue"
-            },
-            {
-                "date": "12.04.24",
-                "stage": "Quart de finale",
-                "nom_joueur": "Casper Ruud",
-                "nom_opposant": "Ugo Humbert",
-                "score": "6-3, 4-6, 6-1",
-                "resultat": "victoire",
-                "lien_detail_match": "https://www.tennisendirect.net/atp/match/casper-ruud-VS-ugo-humbert/monte-carlo-rolex-masters-monte-carlo-2024/",
-                "tournoi": "Monte-Carlo Rolex Masters - Monte-Carlo / $6.642M",
-                "type_terrain": "terre battue"
             }
         ]
     },
@@ -3891,7 +3905,7 @@
             "age": "37",
             "classement_atp": "7",
             "points": "3910",
-            "primes": "180643353",
+            "primes": "185065269",
             "total_match": "1522",
             "victoires": "1266",
             "taux_reussite": "83.18"
@@ -4613,7 +4627,7 @@
             "age": "27",
             "classement_atp": "8",
             "points": "3760",
-            "primes": "21555350",
+            "primes": "25686167",
             "total_match": "781",
             "victoires": "508",
             "taux_reussite": "65.04"
@@ -4971,23 +4985,23 @@
             },
             {
                 "date": "10.08.24",
-                "stage": "3e tour",
-                "nom_joueur": "Andrey Rublev",
-                "nom_opposant": "Brandon Nakashima",
-                "score": "6-2, 6-2",
-                "resultat": "victoire",
-                "lien_detail_match": "https://www.tennisendirect.net/atp/match/andrey-rublev-VS-brandon-nakashime/national-bank-open-montreal-2024/",
-                "tournoi": "National Bank Open - Montreal / $8.1M",
-                "type_terrain": "dure"
-            },
-            {
-                "date": "10.08.24",
                 "stage": "Quart de finale",
                 "nom_joueur": "Andrey Rublev",
                 "nom_opposant": "Jannik Sinner",
                 "score": "6-3, 1-6, 6-2",
                 "resultat": "victoire",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/andrey-rublev-VS-jannik-sinner/national-bank-open-montreal-2024/",
+                "tournoi": "National Bank Open - Montreal / $8.1M",
+                "type_terrain": "dure"
+            },
+            {
+                "date": "10.08.24",
+                "stage": "3e tour",
+                "nom_joueur": "Andrey Rublev",
+                "nom_opposant": "Brandon Nakashima",
+                "score": "6-2, 6-2",
+                "resultat": "victoire",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/andrey-rublev-VS-brandon-nakashime/national-bank-open-montreal-2024/",
                 "tournoi": "National Bank Open - Montreal / $8.1M",
                 "type_terrain": "dure"
             },
@@ -5265,12 +5279,19 @@
             "age": "25",
             "classement_atp": "9",
             "points": "3745",
-            "primes": "11223939",
-            "total_match": "606",
-            "victoires": "389",
-            "taux_reussite": "64.19"
+            "primes": "15303985",
+            "total_match": "607",
+            "victoires": "390",
+            "taux_reussite": "64.25"
         },
         "statistiques": {
+            "2025_sommaire": "1/0",
+            "2025_dure": "1/0",
+            "2025_terre_battue": "0/0",
+            "2025_salle": "0/0",
+            "2025_carpet": "0/0",
+            "2025_gazon": "0/0",
+            "2025_acryl": "0/0",
             "2024_sommaire": "48/22",
             "2024_dure": "19/6",
             "2024_terre_battue": "10/5",
@@ -5343,6 +5364,17 @@
             "2015_acryl": "0/0"
         },
         "matchs": [
+            {
+                "date": "28.12.24",
+                "stage": "",
+                "nom_joueur": "Alex De Minaur",
+                "nom_opposant": "Tomas Martin Etcheverry",
+                "score": "6-1, 6-4",
+                "resultat": "victoire",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/alex-de-minaur-VS-tomas-martin-etcheverry/united-cup-australia-2025/",
+                "tournoi": "United Cup - Australia / ",
+                "type_terrain": "dure"
+            },
             {
                 "date": "23.11.24",
                 "stage": "",
@@ -5881,17 +5913,6 @@
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/alexander-zverev-VS-alex-de-minaur/bnp-paribas-open-indian-wells-2024/",
                 "tournoi": "BNP Paribas Open - Indian Wells / $11.9M",
                 "type_terrain": "dure"
-            },
-            {
-                "date": "10.03.24",
-                "stage": "3e tour",
-                "nom_joueur": "Alex De Minaur",
-                "nom_opposant": "Alexander Bublik",
-                "score": "7-5, 6-0",
-                "resultat": "victoire",
-                "lien_detail_match": "https://www.tennisendirect.net/atp/match/alex-de-minaur-VS-alexander-bublik/bnp-paribas-open-indian-wells-2024/",
-                "tournoi": "BNP Paribas Open - Indian Wells / $11.9M",
-                "type_terrain": "dure"
             }
         ]
     },
@@ -5903,7 +5924,7 @@
             "age": "33",
             "classement_atp": "10",
             "points": "3350",
-            "primes": "25135270",
+            "primes": "28321326",
             "total_match": "985",
             "victoires": "617",
             "taux_reussite": "62.64"
@@ -6435,23 +6456,23 @@
             },
             {
                 "date": "11.04.24",
-                "stage": "3e tour",
-                "nom_joueur": "Grigor Dimitrov",
-                "nom_opposant": "Holger Rune",
-                "score": "7-69, 3-6, 7-62",
-                "resultat": "défaite",
-                "lien_detail_match": "https://www.tennisendirect.net/atp/match/holger-vitus-nodskov-rune-VS-grigor-dimitrov/monte-carlo-rolex-masters-monte-carlo-2024/",
-                "tournoi": "Monte-Carlo Rolex Masters - Monte-Carlo / $6.642M",
-                "type_terrain": "terre battue"
-            },
-            {
-                "date": "11.04.24",
                 "stage": "2e tour",
                 "nom_joueur": "Grigor Dimitrov",
                 "nom_opposant": "Miomir Kecmanovic",
                 "score": "6-4, 6-3",
                 "resultat": "victoire",
                 "lien_detail_match": "https://www.tennisendirect.net/atp/match/grigor-dimitrov-VS-miomir-kecmanovic/monte-carlo-rolex-masters-monte-carlo-2024/",
+                "tournoi": "Monte-Carlo Rolex Masters - Monte-Carlo / $6.642M",
+                "type_terrain": "terre battue"
+            },
+            {
+                "date": "11.04.24",
+                "stage": "3e tour",
+                "nom_joueur": "Grigor Dimitrov",
+                "nom_opposant": "Holger Rune",
+                "score": "7-69, 3-6, 7-62",
+                "resultat": "défaite",
+                "lien_detail_match": "https://www.tennisendirect.net/atp/match/holger-vitus-nodskov-rune-VS-grigor-dimitrov/monte-carlo-rolex-masters-monte-carlo-2024/",
                 "tournoi": "Monte-Carlo Rolex Masters - Monte-Carlo / $6.642M",
                 "type_terrain": "terre battue"
             },

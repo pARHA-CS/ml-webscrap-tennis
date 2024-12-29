@@ -10,7 +10,7 @@ import src.scraping.scrap_page_joueur as spj
 
    
 current_dir: str = os.getcwd()
-file_path: str = os.path.join(current_dir, "donnees", "joueurs.json")
+file_path: str = os.path.join(current_dir, "data", "joueurs.json")
 
 # Charger le JSON
 with open(file_path, "r") as fichier:
@@ -52,7 +52,7 @@ for joueur in genereateur_joueurs:
         "matchs": [match.__dict__ for match in joueur_derniers_matchs]
     }
     
-    output_file = os.path.join(current_dir, "donnees", "detail_joueurs.json")
+    output_file = os.path.join(current_dir, "data", "detail_joueurs.json")
     
     if os.path.exists(output_file):
         with open(output_file, "r", encoding="utf-8") as fichier:
