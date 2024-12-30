@@ -7,6 +7,7 @@ import os
 import json
 import time
 import logging
+import random
 from requests import get
 from bs4 import BeautifulSoup
 import src.scraping.scrap_page_joueur as spj
@@ -54,7 +55,8 @@ else:
     joueurs_data = {}
     logger.info(f"Le fichier {output_file} n'existe pas. Un nouveau fichier sera créé.")
 
-generateur_joueurs = (joueurs[i] for i in range(10))  # génère les 100 premiers joueurs 
+nombre_joueurs_scrap = 100 
+generateur_joueurs = (joueurs[i] for i in range(nombre_joueurs_scrap))  # génère les 100 premiers joueurs 
 
 for joueur in generateur_joueurs:
     nom_joueur = joueur['nom_joueur'].replace(" ", "_")
@@ -95,6 +97,6 @@ for joueur in generateur_joueurs:
     except Exception as e:
         logger.error(f"Erreur lors du traitement de {nom_joueur}: {e}", exc_info=True)
     
-    time.sleep(2)
+    time.sleep(random.uniform(2,5))
 
 logger.info(f"Tous les joueurs ont été traités et sauvegardés dans {output_file}.")

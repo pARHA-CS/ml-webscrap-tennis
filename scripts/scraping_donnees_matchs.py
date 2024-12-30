@@ -42,7 +42,8 @@ for key, value in detail_joueurs.items():
 
 id_matchs = {f"match_{i+1}": lien for i, lien in enumerate(liens_match)}
 
-premiers_liens_avec_id = {key: id_matchs[key] for key in list(id_matchs.keys())[:10]}
+nombre_matchs_scrap = 100
+premiers_liens_avec_id = {key: id_matchs[key] for key in list(id_matchs.keys())[:nombre_matchs_scrap]}
 
 if os.path.exists(output_file):
     try:
