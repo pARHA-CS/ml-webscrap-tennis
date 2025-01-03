@@ -1,0 +1,7 @@
+2025-01-02 15:26:46,390 - INFO - Chargement des données...
+2025-01-02 15:26:46,404 - INFO - Création du dataset d'entraînement...
+2025-01-02 15:26:46,447 - INFO - le dataframe créé : 
+ Empty DataFrame
+Columns: []
+Index: []
+2025-01-02 15:26:46,450 - INFO - Dataset brut sauvegardé dans 'data/tennis_dataset_raw.csv'

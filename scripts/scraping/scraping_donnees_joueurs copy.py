@@ -20,7 +20,7 @@ with open(file_path, "r") as fichier:
 genereateur_joueurs = (joueurs[i] for i in range(10))
 
 for joueur in genereateur_joueurs:
-    nom_joueur = joueur['nom_joueur'].replace(" ", "_")
+    nom_joueur = joueur['nom_joueur']
     lien = joueur['lien_joueur']
     
     print(nom_joueur)

@@ -55,11 +55,11 @@ else:
     joueurs_data = {}
     logger.info(f"Le fichier {output_file} n'existe pas. Un nouveau fichier sera créé.")
 
-nombre_joueurs_scrap = 100 
+nombre_joueurs_scrap = 10 
 generateur_joueurs = (joueurs[i] for i in range(nombre_joueurs_scrap))  # génère les 100 premiers joueurs 
 
 for joueur in generateur_joueurs:
-    nom_joueur = joueur['nom_joueur'].replace(" ", "_")
+    nom_joueur = joueur['nom_joueur']
     lien = joueur['lien_joueur']
     
     logger.info(f"Début du scraping pour {nom_joueur}...")

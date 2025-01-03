@@ -53,7 +53,7 @@
         "lien_match": "https://www.tennisendirect.net/atp/match/alexander-zverev-VS-francis-tiafoe/laver-cup-berlin-2024/",
         "joueur_gagnant": {
             "nom_joueur": "Alexander Zverev",
-            "premier_service": "63/85 (74%)",
+            "premier_service": "63/85 (joueur_perdant%)",
             "pnts_gagnes_ps": "50/63 (79%)",
             "pnts_gagnes_ss": "10/22 (45%)",
             "balles_break_gagnees": "2/9 (22%)",
