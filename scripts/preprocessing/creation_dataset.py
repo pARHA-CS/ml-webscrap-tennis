@@ -1,11 +1,13 @@
 """Script pour créer le dataset à partir des données scraper
 """
 import src.preprocessing.preprocessing as pre
+from src.logging.manage_log_preprocessing import preprocessing_setup_logging
 import logging
 import os
 
+preprocessing_setup_logging()
 logging.basicConfig(
-    filename=os.path.join(os.getcwd(), "logs", "preprocessing_details_joueurs.log"),
+    filename=os.path.join(os.getcwd(), "logs", "preprocessing.log"),
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
     filemode= "w",
