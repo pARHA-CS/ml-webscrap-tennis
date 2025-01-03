@@ -1,32 +1,41 @@
 """Module pour créer le dataset
 """
-import pandas as pd
+import polars as pl
 import numpy as np
 import json
-from datetime import datetime
+import logging
+from tqdm import tqdm
+
+logger = logging.getLogger(__name__)
 
 def create_player_features(player_data, matches, stats_matches_data):
     """
     Crée les features pour un joueur donné.
     """
+    logger.info(f"Création des features pour le joueur {player_data['nom_joueur']}.")
     player_features = {
-        'name' : str(player_data['nom_joueur']),
+        'name': str(player_data['nom_joueur']),
         'age': int(player_data['age'].split(" ")[0]),
         'ranking': int(player_data['rank'].replace('.', '')),
         'points': int(player_data['points']),
     }
     
+    try:
+        recent_matches = [match for match in matches]
+        
+        win_rates = calculate_win_rates(recent_matches)
+        player_features.update(win_rates)
 
-    recent_matches = [match for match in matches]
+        surface_stats = calculate_surface_stats(recent_matches)
+        player_features.update(surface_stats)
 
-    win_rates = calculate_win_rates(recent_matches)
-    player_features.update(win_rates) # type: ignore
+        performance_stats = calculate_performance_stats(stats_matches_data, player_data['nom_joueur'])
+        player_features.update(performance_stats.items())
 
-    surface_stats = calculate_surface_stats(recent_matches)
-    player_features.update(surface_stats)
-
-    performance_stats = calculate_performance_stats(stats_matches_data, player_data['nom_joueur'])
-    player_features.update(performance_stats.items()) # type: ignore
+        logger.info(f"Features créées pour le joueur {player_data['nom_joueur']}.")
+    except Exception as e:
+        logger.error(f"Erreur lors de la création des features pour {player_data['nom_joueur']} : {e}")
+        raise
     
     return player_features
 
@@ -34,23 +43,36 @@ def calculate_win_rates(matches):
     """
     Calcule les taux de victoire globaux
     """
-    total_matches = len(matches)
-    if total_matches == 0:
+    logger.info(f"Calcul des taux de victoire pour {len(matches)} matches.")
+    if not matches:
+        logger.warning("Aucun match disponible pour calculer les taux de victoire.")
         return {'win_rate': 0, 'win_rate_3_sets': 0, 'win_rate_tiebreak': 0}
     
-    victories = sum(1 for m in matches if m['resultat'] == 'victoire')
-    tiebreak_matches = sum(1 for m in matches if any(('7-6'or '6-7') in set_score for set_score in m['score'].split(', ')))
-    three_set_matches = sum(1 for m in matches if len(m['score'].split(', ')) >= 3)
-    
-    return {
-        'win_rate': victories / total_matches,
-        'win_rate_3_sets': sum(1 for m in matches if len(m['score'].split(', ')) >= 3 and m['resultat'] == 'victoire') / max(1, three_set_matches),
-        'win_rate_tiebreak': sum(
-            1 for m in matches 
-            if (any('7-6' in set_score for set_score in m['score'].split(', ')) and m['resultat'] == 'victoire')
-            or (any('6-7' in set_score for set_score in m['score'].split(', ')) and m['resultat'] == 'défaite')
+    try:
+        victories = sum(1 for m in matches if m['resultat'] == 'victoire')
+        total_matches = len(matches)
+        tiebreak_matches = sum(
+            1 for m in matches if any(('7-6' or '6-7') in set_score for set_score in m['score'].split(', '))
+        )
+        three_set_matches = sum(1 for m in matches if len(m['score'].split(', ')) >= 3)
+
+        win_rates = {
+            'win_rate': victories / total_matches,
+            'win_rate_3_sets': sum(
+                1 for m in matches if len(m['score'].split(', ')) >= 3 and m['resultat'] == 'victoire'
+            ) / max(1, three_set_matches),
+            'win_rate_tiebreak': sum(
+                1 for m in matches 
+                if (any('7-6' in set_score for set_score in m['score'].split(', ')) and m['resultat'] == 'victoire')
+                or (any('6-7' in set_score for set_score in m['score'].split(', ')) and m['resultat'] == 'défaite')
             ) / max(1, tiebreak_matches)
-    }
+        }
+
+        logger.debug(f"Taux de victoire calculés : {win_rates}")
+        return win_rates
+    except Exception as e:
+        logger.error(f"Erreur lors du calcul des taux de victoire : {e}")
+        raise
 
 def calculate_surface_stats(matches):
     """
@@ -69,6 +91,7 @@ def calculate_surface_stats(matches):
             wins = sum(1 for m in surface_matches if m['resultat'] == 'victoire')
             stats[f'win_rate_{surface}'] = wins / total_matches
         else:
+            logger.warning(f"Pas de stats pour la surface : {surface}")
             stats[f'win_rate_{surface}'] = 0
         
     return stats
@@ -85,6 +108,7 @@ def calculate_performance_stats(stats_matches_data, player_name):
             player_matches.append(match['joueur_perdant'])
     
     if not player_matches:
+        logger.warning(f"{player_name} pas reconnue dans le fichier 'stats_matchs.json'")
         return {
             'avg_first_serve_pct': 0,
             'avg_first_serve_won_pct': 0,
@@ -129,6 +153,7 @@ def calculate_average_stat_ratio(matches, stat_key):
                 total_numerator += numerator
                 total_denominator += denominator
             except (ValueError, IndexError):
+                logger.error(f"Problème pour la stat : {stat_key}, dans le match : {match}")
                 continue
 
     return total_numerator / total_denominator if total_denominator > 0 else 0
@@ -141,8 +166,12 @@ def calculate_average_stat_absolue(matches, stat_key):
     values = []
     for match in matches:
         if match[stat_key] != "NA":
-            percentage = int(match[stat_key])
-            values.append(percentage)
+            try:
+                percentage = int(match[stat_key])
+                values.append(percentage)
+            except (ValueError, IndexError):
+                logger.error(f"Problème pour la stat : {stat_key}, dans le match : {match}")
+                continue
             
     return np.mean(values) if values else 0
 
@@ -151,12 +180,9 @@ def prepare_match_data(player1_data, player2_data, match_info):
     Combine les features des deux joueurs pour un match
     """
     features = {}
-    
-    # Features du joueur 1
     for key, value in player1_data.items():
         features[f'player1_{key}'] = value
         
-    # Features du joueur 2
     for key, value in player2_data.items():
         features[f'player2_{key}'] = value
         
@@ -165,6 +191,7 @@ def prepare_match_data(player1_data, player2_data, match_info):
         'surface': match_info['type_terrain'],
         'tournament_category': get_tournament_category(match_info['tournoi'])
     })
+    logger.info(f"Les features des joueurs : {player1_data['name']} et {player2_data['name']} sont réussies")
     
     return features
 
@@ -201,45 +228,51 @@ def get_tournament_category(tournament_name):
     else:
         return 1
 
-    
-
 def load_data(joueurs_file, detail_joueurs_file, stats_match_file):
     """
-    Charge les données depuis les fichiers JSON
+    Charge les données depuis les fichiers JSON avec gestion explicite de l'encodage.
     """
-    with open(joueurs_file, 'r') as f:
+    logger.info("Chargement des données.")
+    
+    with open(joueurs_file, 'r', encoding='utf-8') as f:
         joueurs_data = json.load(f)
-    with open(detail_joueurs_file, 'r') as f:
+    with open(detail_joueurs_file, 'r', encoding='utf-8') as f:
         detail_joueurs = json.load(f)
-    with open(stats_match_file, 'r') as f:
+    with open(stats_match_file, 'r', encoding='utf-8') as f:
         stats_matches = json.load(f)
+    
+    logger.info("Données chargées avec succès.")
     return joueurs_data, detail_joueurs, stats_matches
+
 
 def create_training_dataset(joueurs_data, detail_joueurs, stats_matches):
     """
-    Crée un dataset d'entraînement à partir des données
+    Crée un dataset d'entraînement à partir des données avec suivi de progression.
     """
+    logger.info("Début de la création du dataset d'entraînement.")
     dataset = []
     
-    for player_name, player_details in detail_joueurs.items():
-        print(f"------------------------------------------------------------{player_name}------------------------------------------------------------")
+    for player_name, player_details in tqdm(detail_joueurs.items(), desc="Traitement des joueurs", unit="joueur"):
+        logger.info(f"Traitement du joueur : {player_name}")
         player_base = next((j for j in joueurs_data if j["nom_joueur"] == player_name), None)
         
         if not player_base:
+            logger.warning(f"Joueur non trouvé dans les données de base : {player_name}")
             continue
             
-        for match in player_details['matchs']:
-            
+        for match in tqdm(player_details['matchs'], desc=f"Matchs de {player_name}", unit="match", leave=False):
             opponent_name = match['nom_opposant']
-            opponent_base = next((j for j in joueurs_data if j["nom_joueur"] == opponent_name), None)
+            logger.debug(f"Traitement du match contre {opponent_name} pour le joueur {player_name}.")
             
+            opponent_base = next((j for j in joueurs_data if j["nom_joueur"] == opponent_name), None)
             if not opponent_base:
+                logger.warning(f"Adversaire non trouvé : {opponent_name}")
                 continue
                 
             opponent_details = next((details for name, details in detail_joueurs.items() 
                                 if details['profil']['nom'] == opponent_name), None)
-            
             if not opponent_details:
+                logger.warning(f"Détails manquants pour l'adversaire : {opponent_name}")
                 continue
                 
             try:
@@ -261,14 +294,17 @@ def create_training_dataset(joueurs_data, detail_joueurs, stats_matches):
                 }
                 
                 features = prepare_match_data(player_features, opponent_features, match_info)
-                
                 features['target'] = 1 if match['resultat'] == 'victoire' else 0
-                
                 dataset.append(features)
                 
             except Exception as e:
-                print(f"Erreur lors du traitement du match {match['date']} entre {player_name} et {opponent_name}: {str(e)}")
+                logger.error(f"Erreur lors du traitement du match {match['date']} entre {player_name} et {opponent_name} : {e}")
                 continue
     
-    return pd.DataFrame(dataset)
+    logger.info("Création du dataset terminée.")
+    
+    df = pl.DataFrame(dataset)
+    return df
+
+
 
