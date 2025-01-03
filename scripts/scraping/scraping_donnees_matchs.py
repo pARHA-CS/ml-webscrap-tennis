@@ -1,23 +1,16 @@
-"""Script pour scraper les données d'une page de match entre deux joueurs
-"""
-
 import json
 import os
 import time
 import logging
-from requests import get
-from bs4 import BeautifulSoup
 import src.scraping.scrap_page_match as spb
+from requests import get
+from random import uniform
+from bs4 import BeautifulSoup
+from src.logging.logging_config import setup_logging
+from tqdm import tqdm 
 
-# Configuration du logger
-logging.basicConfig(
-    filename=os.path.join(os.getcwd(), "logs", "scraping_donnees_matchs.log"),
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    filemode= "w",
-    encoding="utf-8"
-)
-logger = logging.getLogger(__name__)
+setup_logging("scraping_donnees_matchs.log")
+logger: logging.Logger = logging.getLogger(__name__)
 
 current_dir = os.getcwd()
 output_file: str = os.path.join(current_dir, "data", "stats_matchs.json")
@@ -43,7 +36,7 @@ for key, value in detail_joueurs.items():
 id_matchs = {f"match_{i+1}": lien for i, lien in enumerate(liens_match)}
 
 nombre_matchs_scrap = 100
-premiers_liens_avec_id = {key: id_matchs[key] for key in list(id_matchs.keys())[:nombre_matchs_scrap]}
+premiers_liens_avec_id = {key: id_matchs[key] for key in list(id_matchs.keys())}
 
 if os.path.exists(output_file):
     try:
@@ -57,7 +50,7 @@ else:
     match_data = {}
     logger.info(f"Aucun fichier {output_file} trouvé. Un nouveau sera créé.")
 
-for id_match, lien_match in premiers_liens_avec_id.items():
+for id_match, lien_match in tqdm(premiers_liens_avec_id.items(), desc="Scraping des matchs", unit="match"):
     logger.info(f"Début du scraping pour {id_match} : {lien_match}...")
     
     try:
@@ -87,6 +80,7 @@ for id_match, lien_match in premiers_liens_avec_id.items():
     except Exception as e:
         logger.error(f"Erreur lors du traitement de {id_match} : {lien_match} -> {e}")
         
-    time.sleep(2)
+    time.sleep(uniform(2,5))
+
     
 logger.info(f"Tous les matchs ont été traités et sauvegardés dans {output_file}")

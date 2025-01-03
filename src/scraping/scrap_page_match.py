@@ -1,7 +1,9 @@
 from bs4 import BeautifulSoup
 from dataclasses import dataclass
 from typing import List
+import logging
 
+logger = logging.getLogger(__name__)
 @dataclass
 class StatsMatch:
     nom_joueur: str
@@ -18,19 +20,31 @@ def extraire_colonnes(table: BeautifulSoup) -> List[str]:
     """
     Extrait les données des colonnes sous forme de liste de texte brut.
     """
-    return [td.text.strip() for td in table.find_all("td")]
+    logger.debug("Extraction des colonnes de la table...")
+    try:
+        colonnes = [td.text.strip() for td in table.find_all("td")]
+        logger.debug(f"{len(colonnes)} colonnes extraites.")
+        return colonnes
+    except Exception as e:
+        logger.error(f"Erreur lors de l'extraction des colonnes : {e}")
+        return []
 
 def lignes_statistiques(table_data: List[str]) -> dict:
     """
     Sépare les données de la table en groupes de 3 éléments et les stocke dans un dictionnaire.
-    La première ligne de chaque groupe est utilisée comme clé.
     """
+    logger.debug("Séparation des données en groupes de 3 éléments.")
     stats_dict = {}
-    for i in range(0, len(table_data), 3):
-        key = table_data[i]
-        values = table_data[i + 1:i + 3]
-        stats_dict[key] = values
+    try:
+        for i in range(0, len(table_data), 3):
+            key = table_data[i]
+            values = table_data[i + 1:i + 3]
+            stats_dict[key] = values
+        logger.debug(f"Statistiques extraites : {stats_dict}")
+    except Exception as e:
+        logger.error(f"Erreur lors de la séparation des données : {e}")
     return stats_dict
+
 
 def creer_stats_joueur(stats_dict: dict[str, list], index_joueur: int, valeur_par_defaut: str = "NA") -> StatsMatch:
     """
