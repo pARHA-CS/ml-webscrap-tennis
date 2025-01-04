@@ -1,4 +1,4 @@
-from scraping.scraping_top_900_H import extraire_lignes, genere_ligne, Ligne
+from scripts.scraping.scraping_top_900_H import extraire_lignes, genere_ligne, Ligne
 from bs4 import BeautifulSoup
 import pytest
 
