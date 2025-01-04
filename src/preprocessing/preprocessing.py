@@ -260,7 +260,7 @@ def create_training_dataset(joueurs_data, detail_joueurs, stats_matches):
             logger.warning(f"Joueur non trouvé dans les données de base : {player_name}")
             continue
             
-        for match in tqdm(player_details['matchs'], desc=f"Matchs de {player_name}", unit="match", leave=False):
+        for match in player_details['matchs']:
             opponent_name = match['nom_opposant']
             logger.debug(f"Traitement du match contre {opponent_name} pour le joueur {player_name}.")
             

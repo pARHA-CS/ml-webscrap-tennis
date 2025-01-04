@@ -17,7 +17,7 @@ try:
     joueurs_data, detail_joueurs, stats_matches = pre.load_data(
         'data/joueurs.json',
         'data/detail_joueurs.json',
-        'data/stats_matchs.json'
+        'data/stats_matchs_cleaned.json'
     )
     logger.info("Données chargées avec succès.")
 except Exception as e:
