@@ -8,6 +8,7 @@ import json
 import time
 import logging
 import random
+from tqdm import tqdm
 from requests import get
 from bs4 import BeautifulSoup
 import src.scraping.scrap_page_joueur as spj
@@ -55,10 +56,10 @@ else:
     joueurs_data = {}
     logger.info(f"Le fichier {output_file} n'existe pas. Un nouveau fichier sera créé.")
 
-nombre_joueurs_scrap = 10 
+nombre_joueurs_scrap = 200
 generateur_joueurs = (joueurs[i] for i in range(nombre_joueurs_scrap))  # génère les 100 premiers joueurs 
 
-for joueur in generateur_joueurs:
+for joueur in tqdm(generateur_joueurs, desc="Scraping des joueurs", unit="joueur", total=nombre_joueurs_scrap):
     nom_joueur = joueur['nom_joueur']
     lien = joueur['lien_joueur']
     
