@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 logger = logging.getLogger(__name__)
 
-def create_player_features(player_data, matches, stats_matches_data):
+def create_player_features(player_data, matches, stats_matches_data, current_match):
     """
     Crée les features pour un joueur donné.
     """
@@ -29,7 +29,7 @@ def create_player_features(player_data, matches, stats_matches_data):
         surface_stats = calculate_surface_stats(recent_matches)
         player_features.update(surface_stats)
 
-        performance_stats = calculate_performance_stats(stats_matches_data, player_data['nom_joueur'])
+        performance_stats = calculate_performance_stats(stats_matches_data, player_data['nom_joueur'], current_match)
         player_features.update(performance_stats.items())
 
         logger.info(f"Features créées pour le joueur {player_data['nom_joueur']}.")
@@ -95,21 +95,49 @@ def calculate_surface_stats(matches):
             stats[f'win_rate_{surface}'] = 0
         
     return stats
-
-def calculate_performance_stats(stats_matches_data, player_name):
+    
+def calculate_performance_stats(stats_matches_data, player_name, current_match):
     """
-    Calcule les moyennes des statistiques de performance
+    Calcule les moyennes des statistiques de performance pour un joueur,
+    et les combine avec les statistiques du match actuel.
+
+    Args:
+        stats_matches_data (dict): Dictionnaire contenant les données des matchs.
+        player_name (str): Nom du joueur à analyser.
+        current_match (dict): Détail du match en cours.
+
+    Returns:
+        dict: Statistiques combinées du match actuel et des moyennes des performances du joueur.
     """
     player_matches = []
+    stats = {}
+
     for match in stats_matches_data.values():
         if match['joueur_gagnant']['nom_joueur'] == player_name:
             player_matches.append(match['joueur_gagnant'])
+            is_current_match = (match['lien_match'] == current_match['lien_detail_match'])
+            player_stats = match['joueur_gagnant']
         elif match['joueur_perdant']['nom_joueur'] == player_name:
             player_matches.append(match['joueur_perdant'])
-    
+            is_current_match = (match['lien_match'] == current_match['lien_detail_match'])
+            player_stats = match['joueur_perdant']
+        else:
+            continue
+
+        if is_current_match:
+            stats.update({
+                'first_serve_pct': extract_stat_percentage(player_stats.get('premier_service', '0/0')),
+                'first_serve_won_pct': extract_stat_percentage(player_stats.get('pnts_gagnes_ps', '0/0')),
+                'second_serve_won_pct': extract_stat_percentage(player_stats.get('pnts_gagnes_ss', '0/0')),
+                'return_points_won_pct': extract_stat_percentage(player_stats.get('retours_gagnes', '0/0')),
+                'break_point_won_pct': extract_stat_percentage(player_stats.get('balles_break_gagnees', '0/0')),
+                'double_fautes': int(player_stats.get('double_fautes', 0)),
+                'aces': int(player_stats.get('aces', 0))
+            })
+
     if not player_matches:
-        logger.warning(f"{player_name} pas reconnue dans le fichier 'stats_matchs.json'")
-        return {
+        logger.warning(f"{player_name} pas trouvé dans les données de 'stats_matchs.json'")
+        stats.update({
             'avg_first_serve_pct': 0,
             'avg_first_serve_won_pct': 0,
             'avg_second_serve_won_pct': 0,
@@ -117,9 +145,10 @@ def calculate_performance_stats(stats_matches_data, player_name):
             'avg_break_point_won_pct': 0,
             'avg_double_fautes': 0,
             'avg_aces': 0
-        }
-    
-    stats = {
+        })
+        return stats
+
+    stats.update({
         'avg_first_serve_pct': calculate_average_stat_ratio(player_matches, 'premier_service'),
         'avg_first_serve_won_pct': calculate_average_stat_ratio(player_matches, 'pnts_gagnes_ps'),
         'avg_second_serve_won_pct': calculate_average_stat_ratio(player_matches, 'pnts_gagnes_ss'),
@@ -127,9 +156,25 @@ def calculate_performance_stats(stats_matches_data, player_name):
         'avg_break_point_won_pct': calculate_average_stat_ratio(player_matches, 'balles_break_gagnees'),
         'avg_double_fautes': calculate_average_stat_absolue(player_matches, 'double_fautes'),
         'avg_aces': calculate_average_stat_absolue(player_matches, 'aces')
-    }
-    
+    })
+
     return stats
+
+def extract_stat_percentage(value):
+    """
+    Extrait le pourcentage d'une chaîne au format 'XX/YY (ZZ%)'.
+    Args:
+        value (str): Chaîne contenant les statistiques.
+    Returns:
+        int: Pourcentage extrait ou 0 si le format est invalide.
+    """
+    if not value:
+        return 0
+    try:
+        return float(value.split('(')[-1].split('%')[0].strip()) / 100
+    except (IndexError, ValueError):
+        return 0
+
 
 def calculate_average_stat_ratio(matches, stat_key):
     """
@@ -207,7 +252,7 @@ def get_tournament_category(tournament_name):
     """
     tournament_name = tournament_name.lower()
 
-    if any(grand_slam in tournament_name for grand_slam in ['australian open', 'roland garros', 'wimbledon', 'us open']):
+    if any(grand_slam in tournament_name for grand_slam in ['australian open', 'roland garros', 'wimbledon', 'u.s. open']):
         return 4
     
     elif 'atp finals' in tournament_name or 'laver cup' in tournament_name:
@@ -254,8 +299,8 @@ def create_training_dataset(joueurs_data, detail_joueurs, stats_matches):
     
     for player_name, player_details in tqdm(detail_joueurs.items(), desc="Traitement des joueurs", unit="joueur"):
         logger.info(f"Traitement du joueur : {player_name}")
-        player_base = next((j for j in joueurs_data if j["nom_joueur"] == player_name), None)
         
+        player_base = next((j for j in joueurs_data if j["nom_joueur"] == player_name), None)
         if not player_base:
             logger.warning(f"Joueur non trouvé dans les données de base : {player_name}")
             continue
@@ -280,12 +325,14 @@ def create_training_dataset(joueurs_data, detail_joueurs, stats_matches):
                     player_base,
                     player_details['matchs'],
                     stats_matches,
+                    match
                 )
                 
                 opponent_features = create_player_features(
                     opponent_base,
                     opponent_details['matchs'],
                     stats_matches,
+                    match
                 )
                 
                 match_info = {
