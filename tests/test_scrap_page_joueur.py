@@ -27,7 +27,7 @@ def test_genere_profil_complet():
         Taux de réussite: <b>83.15 %</b><br>
     </div>
     """
-    soup = BeautifulSoup(html, "html.parser")
+    soup = BeautifulSoup(html, "lxml")
     profil = genere_profil([soup.div])
     attendu = Profil(
         nom="Novak Djokovic",
@@ -51,7 +51,7 @@ def test_genere_profil_incomplet():
         
     </div>
     """
-    soup = BeautifulSoup(html, "html.parser")
+    soup = BeautifulSoup(html, "lxml")
     profil = genere_profil([soup.div])
     attendu = Profil(
         nom="NA",
@@ -75,7 +75,7 @@ def test_extraire_lignes():
         <tr class="pair"><td>3</td></tr>
     </table>
     """
-    soup = BeautifulSoup(html, "html.parser")
+    soup = BeautifulSoup(html, "lxml")
     lignes = extraire_lignes(soup.table)
     assert len(lignes) == 3
     assert all(ligne.get("class")[0] in ["pair", "unpair"] for ligne in lignes)
@@ -93,7 +93,7 @@ def test_genere_statistiques_dict():
         <td>0-0</td>
     </tr>
     """
-    soup = BeautifulSoup(html, "html.parser")
+    soup = BeautifulSoup(html, "lxml")
     stats = genere_statistiques_dict(soup.tr)
     attendu = {
         "2023_sommaire": "50-10",
@@ -129,7 +129,7 @@ def test_genere_statistiques_agregrees():
         <td>1-0</td>
     </tr>
     """
-    soup = BeautifulSoup(html, "html.parser")
+    soup = BeautifulSoup(html, "lxml")
     lignes = soup.find_all("tr")
     agregats = genere_statistiques_agregrees(lignes)
     attendu = {
@@ -159,23 +159,25 @@ def test_filtre_tour_head():
         <td class="w130">7-6<sup>4</sup>, 6-3  </td>
         <td class="w16"><img src="https://www.tennisendirect.net/styles/images/ko.gif" width="15" height="15" alt="défaite" /></td>
         <td class="w50" align="center"><a href="https://www.tennisendirect.net/atp/match/jannik-sinner-VS-novak-djokovic/shanghai-rolex-masters-shanghai-2024/" title="détail du match">détail du match</a></td>
-        <td rowspan="6" class="w200"><img src="https://www.tennisendirect.net/flags/flag_china.png" alt="China" width="16" height="16" /> <a href="https://www.tennisendirect.net/hommes/shanghai-rolex-masters-shanghai-2024/" title="Shanghai Rolex Masters - Shanghai / $10.2M">Shanghai </a></td><td rowspan="6" class="w40 surf_1">dure</td>
+        <td rowspan="6" class="w200"><img src="https://www.tennisendirect.net/flags/flag_china.png" alt="China" width="16" height="16" /> <a href="https://www.tennisendirect.net/hommes/shanghai-rolex-masters-shanghai-2024/" title="Shanghai Rolex Masters - Shanghai / $10.2M">Shanghai </a></td>
+        <td rowspan="6" class="w40 surf_1">dure</td>
     </tr>
     """
-    soup = BeautifulSoup(html, "html.parser")
-    match, tournoi, type_terrain = filtre_tour_head(soup.tr)
+    soup = BeautifulSoup(html, features="lxml")
+    match, tournoi, type_terrain = filtre_tour_head(soup)
     attendu = Matchs(
         date="13.10.24",
         stage="Finale",
-        nom_joueur="NA",
-        nom_opposant="NA",
-        score="6-4 6-4",
-        resultat="NA",
-        lien_detail_match="NA",
-        tournoi="NA",
-        type_terrain="Hard",
+        nom_joueur="Novak Djokovic",
+        nom_opposant="Jannik Sinner",
+        score="7-64, 6-3",
+        resultat="défaite",
+        lien_detail_match="https://www.tennisendirect.net/atp/match/jannik-sinner-VS-novak-djokovic/shanghai-rolex-masters-shanghai-2024/",
+        tournoi="Shanghai Rolex Masters - Shanghai / $10.2M",
+        type_terrain="dure",
     )
     assert match == attendu
+    
 """
     <tr class="tour_head pair">
         <td class="w50" align="center">13.10.24</td
@@ -184,7 +186,8 @@ def test_filtre_tour_head():
         <td class="w130">7-6<sup>4</sup>, 6-3  </td>
         <td class="w16"><img src="https://www.tennisendirect.net/styles/images/ko.gif" width="15" height="15" alt="défaite" /></td>
         <td class="w50" align="center"><a href="https://www.tennisendirect.net/atp/match/jannik-sinner-VS-novak-djokovic/shanghai-rolex-masters-shanghai-2024/" title="détail du match">détail du match</a></td>
-        <td rowspan="6" class="w200"><img src="https://www.tennisendirect.net/flags/flag_china.png" alt="China" width="16" height="16" /> <a href="https://www.tennisendirect.net/hommes/shanghai-rolex-masters-shanghai-2024/" title="Shanghai Rolex Masters - Shanghai / $10.2M">Shanghai </a></td><td rowspan="6" class="w40 surf_1">dure</td>
+        <td rowspan="6" class="w200"><img src="https://www.tennisendirect.net/flags/flag_china.png" alt="China" width="16" height="16" /> <a href="https://www.tennisendirect.net/hommes/shanghai-rolex-masters-shanghai-2024/" title="Shanghai Rolex Masters - Shanghai / $10.2M">Shanghai </a></td>
+        <td rowspan="6" class="w40 surf_1">dure</td>
     </tr>
     <tr class=" unpair"><td class="w50" align="center">12.10.24</td>
         <td class="w50" align="center">Demi-finale</td><td class="w130"><b>Novak Djokovic</b></td>
@@ -194,6 +197,7 @@ def test_filtre_tour_head():
         <td class="w50" align="center"><a href="https://www.tennisendirect.net/atp/match/novak-djokovic-VS-taylor-harry-fritz/shanghai-rolex-masters-shanghai-2024/" title="détail du match">détail du match</a></td>
     </tr>
     """
+    
 def test_genere_derniers_matchs():
     html = """
     <tr class="tour_head pair">
@@ -213,7 +217,7 @@ def test_genere_derniers_matchs():
         <td class="w50" align="center"><a href="https://www.tennisendirect.net/atp/match/novak-djokovic-VS-taylor-harry-fritz/shanghai-rolex-masters-shanghai-2024/" title="détail du match">détail du match</a></td>
     </tr>
     """
-    soup = BeautifulSoup(html, "html.parser")
+    soup = BeautifulSoup(html, "lxml")
     lignes = soup.find_all("tr")
     matchs = genere_derniers_matchs(lignes)
     assert len(matchs) == 2
