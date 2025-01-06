@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from typing import List
 import logging
 
-logger = logging.getLogger(__name__)
+logger: logging.Logger = logging.getLogger(__name__)
 @dataclass
 class StatsMatch:
     nom_joueur: str
