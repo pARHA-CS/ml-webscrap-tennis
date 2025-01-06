@@ -234,7 +234,8 @@ def prepare_match_data(player1_data, player2_data, match_info):
     # Features du match
     features.update({
         'surface': match_info['type_terrain'],
-        'tournament_category': get_tournament_category(match_info['tournoi'])
+        'tournament_category': get_tournament_category(match_info['tournoi']),
+        'url_match': match_info['lien_detail_match']
     })
     logger.info(f"Les features des joueurs : {player1_data['name']} et {player2_data['name']} sont réussies")
     
@@ -337,7 +338,8 @@ def create_training_dataset(joueurs_data, detail_joueurs, stats_matches):
                 
                 match_info = {
                     'type_terrain': match['type_terrain'],
-                    'tournoi': match['tournoi']
+                    'tournoi': match['tournoi'],
+                    'lien_detail_match' : match['lien_detail_match']
                 }
                 
                 features = prepare_match_data(player_features, opponent_features, match_info)
