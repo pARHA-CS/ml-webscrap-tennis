@@ -354,6 +354,3 @@ def create_training_dataset(joueurs_data, detail_joueurs, stats_matches):
     
     df = pl.DataFrame(dataset)
     return df
-
-
-

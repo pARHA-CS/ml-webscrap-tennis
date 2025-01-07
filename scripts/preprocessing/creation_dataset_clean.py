@@ -15,7 +15,7 @@ df_unique = df.unique('url_match')
 df_unique = df_unique.with_columns([
     (df_unique["surface"] == "dure").cast(pl.Int8).alias("surface_dure"),
     (df_unique["surface"] == "salle").cast(pl.Int8).alias("surface_salle"),
-    (df_unique["surface"] == "terre_batue").cast(pl.Int8).alias("surface_terre_batue"),
+    (df_unique["surface"] == "terre battue").cast(pl.Int8).alias("surface_terre_batue"),
     (df_unique["surface"] == "gazon").cast(pl.Int8).alias("surface_gazon")
 ])
 
