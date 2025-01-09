@@ -33,4 +33,10 @@ for joueur in joueurs:
     else:
         derniers_matches = pl.concat([derniers_matches, dernier_match], how="vertical")
         
-derniers_matches.write_csv(output_path)
+df_player1 = derniers_matches.select([col for col in derniers_matches.columns if "player1" in col] + ["date"])
+df_player2 = derniers_matches.select([col for col in derniers_matches.columns if "player2" in col] + ["date"]).rename({col: col.replace("player2", "player1") for col in derniers_matches.columns})
+        
+df_combined = pl.concat([df_player1, df_player2], how="vertical").sort(by="date", descending=True)
+df_recent = df_combined.group_by("player1_name").agg(pl.col("*").first())
+
+df_recent.drop("date").write_csv(output_path)
