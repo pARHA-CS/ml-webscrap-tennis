@@ -408,11 +408,12 @@ def create_training_dataset(joueurs_data, detail_joueurs, stats_matches) -> pl.D
                 match_info = {
                     'type_terrain': match['type_terrain'],
                     'tournoi': match['tournoi'],
-                    'lien_detail_match' : match['lien_detail_match']
+                    'lien_detail_match' : match['lien_detail_match'],
                 }
                 
                 features = prepare_match_data(player_features, opponent_features, match_info)
                 features['target'] = 1 if match['resultat'] == 'victoire' else 0
+                features['date'] = match['date']
                 dataset.append(features)
                 
             except Exception as e:
