@@ -4,11 +4,12 @@ import polars as pl
 import numpy as np
 import json
 import logging
+from datetime import datetime
 from tqdm import tqdm
 
 logger = logging.getLogger(__name__)
 
-def create_player_features(player_data, matches, stats_matches_data, current_match):
+def create_player_features(player_data, matches, stats_matches_data, current_match) -> dict:
     """
     Crée les features pour un joueur donné.
     """
@@ -21,15 +22,16 @@ def create_player_features(player_data, matches, stats_matches_data, current_mat
     }
     
     try:
-        recent_matches = [match for match in matches]
-        
+        before_match_date = current_match['date']
+        recent_matches = filter_matches_before_date(matches, before_match_date)
+
         win_rates = calculate_win_rates(recent_matches)
         player_features.update(win_rates)
 
         surface_stats = calculate_surface_stats(recent_matches)
         player_features.update(surface_stats)
 
-        performance_stats = calculate_performance_stats(stats_matches_data, player_data['nom_joueur'], current_match)
+        performance_stats = calculate_performance_stats(stats_matches_data, player_data['nom_joueur'], current_match, matches)
         player_features.update(performance_stats.items())
 
         logger.info(f"Features créées pour le joueur {player_data['nom_joueur']}.")
@@ -39,40 +41,65 @@ def create_player_features(player_data, matches, stats_matches_data, current_mat
     
     return player_features
 
-def calculate_win_rates(matches):
+
+def filter_matches_before_date(matches, current_match_date) -> list:
     """
-    Calcule les taux de victoire globaux
+    Filtre les matchs ayant une date antérieure à une date donnée.
+    
+    Args:
+        matches (list): Liste des matchs.
+        current_match_date (str): Date du match actuel au format 'DD.MM.YY'.
+    
+    Returns:
+        list: Matchs ayant une date antérieure à `current_match_date`.
     """
-    logger.info(f"Calcul des taux de victoire pour {len(matches)} matches.")
+    try:
+        current_date = datetime.strptime(current_match_date, '%d.%m.%y')
+        filtered_matches = [
+            match for match in matches 
+            if 'date' in match and datetime.strptime(match['date'], '%d.%m.%y') < current_date
+        ]
+        return filtered_matches
+    except Exception as e:
+        logger.error(f"Erreur lors du filtrage des matchs : {e}")
+        raise
+
+def calculate_win_rates(matches) -> dict:
+    """
+    Calcule les taux de victoire globaux.
+
+    Args:
+        matches (list): Liste des matchs.
+
+    Returns:
+        dict: Taux de victoire globaux ou valeurs par défaut si aucun match.
+    """
     if not matches:
         logger.warning("Aucun match disponible pour calculer les taux de victoire.")
         return {'win_rate': 0, 'win_rate_3_sets': 0, 'win_rate_tiebreak': 0}
-    
-    try:
-        victories = sum(1 for m in matches if m['resultat'] == 'victoire')
-        total_matches = len(matches)
-        tiebreak_matches = sum(
-            1 for m in matches if any(('7-6' or '6-7') in set_score for set_score in m['score'].split(', '))
-        )
-        three_set_matches = sum(1 for m in matches if len(m['score'].split(', ')) >= 3)
 
-        win_rates = {
-            'win_rate': victories / total_matches,
-            'win_rate_3_sets': sum(
-                1 for m in matches if len(m['score'].split(', ')) >= 3 and m['resultat'] == 'victoire'
-            ) / max(1, three_set_matches),
-            'win_rate_tiebreak': sum(
-                1 for m in matches 
-                if (any('7-6' in set_score for set_score in m['score'].split(', ')) and m['resultat'] == 'victoire')
-                or (any('6-7' in set_score for set_score in m['score'].split(', ')) and m['resultat'] == 'défaite')
-            ) / max(1, tiebreak_matches)
-        }
+    # Calcul des statistiques si des matchs existent
+    victories = sum(1 for m in matches if m['resultat'] == 'victoire')
+    total_matches = len(matches)
+    tiebreak_matches = sum(
+        1 for m in matches if any(('7-6' or '6-7') in set_score for set_score in m['score'].split(', '))
+    )
+    three_set_matches = sum(1 for m in matches if len(m['score'].split(', ')) >= 3)
 
-        logger.debug(f"Taux de victoire calculés : {win_rates}")
-        return win_rates
-    except Exception as e:
-        logger.error(f"Erreur lors du calcul des taux de victoire : {e}")
-        raise
+    win_rates = {
+        'win_rate': victories / total_matches,
+        'win_rate_3_sets': sum(
+            1 for m in matches if len(m['score'].split(', ')) >= 3 and m['resultat'] == 'victoire'
+        ) / max(1, three_set_matches),
+        'win_rate_tiebreak': sum(
+            1 for m in matches 
+            if (any('7-6' in set_score for set_score in m['score'].split(', ')) and m['resultat'] == 'victoire')
+            or (any('6-7' in set_score for set_score in m['score'].split(', ')) and m['resultat'] == 'défaite')
+        ) / max(1, tiebreak_matches)
+    }
+
+    return win_rates
+
 
 def calculate_surface_stats(matches):
     """
@@ -82,6 +109,10 @@ def calculate_surface_stats(matches):
     stats = {}
     
     for surface in surfaces:
+        if not matches:
+            logger.warning("Aucun match disponible pour calculer les taux de victoire.")
+            stats[f'win_rate_{surface}'] = 0 
+        
         surface_matches = [m for m in matches if m['type_terrain'] == surface]
         
         total_matches = len(surface_matches)
@@ -96,48 +127,74 @@ def calculate_surface_stats(matches):
         
     return stats
     
-def calculate_performance_stats(stats_matches_data, player_name, current_match):
+def get_match_date(match_link, matches):
+    """
+    Récupère la date d'un match spécifique depuis detail_joueurs.json.
+
+    Args:
+        player_name (str): Nom du joueur.
+        match_link (str): Lien du match.
+        detail_joueurs_data (dict): Données détaillées des joueurs.
+
+    Returns:
+        datetime: Date du match au format datetime.
+    """
+    for match in matches:
+        if match["lien_detail_match"] == match_link:
+            return datetime.strptime(match["date"], "%d.%m.%y")
+    return None
+
+def filter_previous_matches(player_name, current_match_date, stats_matches_data, matches):
+    """
+    Filtre les matchs pour ne garder que ceux antérieurs à une date donnée.
+
+    Args:
+        player_name (str): Nom du joueur.
+        current_match_date (datetime): Date du match actuel.
+        stats_matches_data (dict): Données des matchs.
+        detail_joueurs_data (dict): Données détaillées des joueurs.
+
+    Returns:
+        list: Liste des données des matchs avant la date donnée.
+    """
+    previous_matches = []
+
+    for match in stats_matches_data.values():
+        if match['joueur_gagnant']['nom_joueur'] == player_name:
+            match_date = get_match_date(match['lien_match'], matches)
+            if match_date and match_date < current_match_date:
+                previous_matches.append(match['joueur_gagnant'])
+        elif match['joueur_perdant']['nom_joueur'] == player_name:
+            match_date = get_match_date(match['lien_match'], matches)
+            if match_date and match_date < current_match_date:
+                previous_matches.append(match['joueur_perdant'])
+
+    return previous_matches
+
+def calculate_performance_stats(stats_matches_data, player_name, current_match, matches):
     """
     Calcule les moyennes des statistiques de performance pour un joueur,
-    et les combine avec les statistiques du match actuel.
+    en ne prenant en compte que les matchs avant le match actuel.
 
     Args:
         stats_matches_data (dict): Dictionnaire contenant les données des matchs.
         player_name (str): Nom du joueur à analyser.
         current_match (dict): Détail du match en cours.
+        matches (list): Liste des matches d'un joueur.
 
     Returns:
         dict: Statistiques combinées du match actuel et des moyennes des performances du joueur.
     """
-    player_matches = []
-    stats = {}
+    
+    current_match_date = get_match_date(current_match['lien_detail_match'], matches)
+    if not current_match_date:
+        raise ValueError(f"La date du match pour {current_match['lien_detail_match']} est introuvable.")
 
-    for match in stats_matches_data.values():
-        if match['joueur_gagnant']['nom_joueur'] == player_name:
-            player_matches.append(match['joueur_gagnant'])
-            is_current_match = (match['lien_match'] == current_match['lien_detail_match'])
-            player_stats = match['joueur_gagnant']
-        elif match['joueur_perdant']['nom_joueur'] == player_name:
-            player_matches.append(match['joueur_perdant'])
-            is_current_match = (match['lien_match'] == current_match['lien_detail_match'])
-            player_stats = match['joueur_perdant']
-        else:
-            continue
+    previous_matches = filter_previous_matches(player_name, current_match_date, stats_matches_data, matches)
 
-        if is_current_match:
-            stats.update({
-                'first_serve_pct': extract_stat_percentage(player_stats.get('premier_service', '0/0')),
-                'first_serve_won_pct': extract_stat_percentage(player_stats.get('pnts_gagnes_ps', '0/0')),
-                'second_serve_won_pct': extract_stat_percentage(player_stats.get('pnts_gagnes_ss', '0/0')),
-                'return_points_won_pct': extract_stat_percentage(player_stats.get('retours_gagnes', '0/0')),
-                'break_point_won_pct': extract_stat_percentage(player_stats.get('balles_break_gagnees', '0/0')),
-                'double_fautes': int(player_stats.get('double_fautes', 0)),
-                'aces': int(player_stats.get('aces', 0))
-            })
-
-    if not player_matches:
-        logger.warning(f"{player_name} pas trouvé dans les données de 'stats_matchs.json'")
-        stats.update({
+    if not previous_matches:
+        logger.warning(f"Aucun match trouvé pour {player_name} avant {current_match_date.strftime('%d.%m.%y')}")
+        averages = {
             'avg_first_serve_pct': 0,
             'avg_first_serve_won_pct': 0,
             'avg_second_serve_won_pct': 0,
@@ -145,22 +202,34 @@ def calculate_performance_stats(stats_matches_data, player_name, current_match):
             'avg_break_point_won_pct': 0,
             'avg_double_fautes': 0,
             'avg_aces': 0
-        })
-        return stats
+        }
+    else:
+        averages = {
+            'avg_first_serve_pct': calculate_average_stat_ratio(previous_matches, 'premier_service'),
+            'avg_first_serve_won_pct': calculate_average_stat_ratio(previous_matches, 'pnts_gagnes_ps'),
+            'avg_second_serve_won_pct': calculate_average_stat_ratio(previous_matches, 'pnts_gagnes_ss'),
+            'avg_return_points_won_pct': calculate_average_stat_ratio(previous_matches, 'retours_gagnes'),
+            'avg_break_point_won_pct': calculate_average_stat_ratio(previous_matches, 'balles_break_gagnees'),
+            'avg_double_fautes': calculate_average_stat_absolue(previous_matches, 'double_fautes'),
+            'avg_aces': calculate_average_stat_absolue(previous_matches, 'aces')
+        }
 
-    stats.update({
-        'avg_first_serve_pct': calculate_average_stat_ratio(player_matches, 'premier_service'),
-        'avg_first_serve_won_pct': calculate_average_stat_ratio(player_matches, 'pnts_gagnes_ps'),
-        'avg_second_serve_won_pct': calculate_average_stat_ratio(player_matches, 'pnts_gagnes_ss'),
-        'avg_return_points_won_pct': calculate_average_stat_ratio(player_matches, 'retours_gagnes'),
-        'avg_break_point_won_pct': calculate_average_stat_ratio(player_matches, 'balles_break_gagnees'),
-        'avg_double_fautes': calculate_average_stat_absolue(player_matches, 'double_fautes'),
-        'avg_aces': calculate_average_stat_absolue(player_matches, 'aces')
-    })
+    # Ajouter les statistiques du match actuel
+    stats = {
+        # 'first_serve_pct': extract_stat_percentage(current_match.get('premier_service', '0/0')),
+        # 'first_serve_won_pct': extract_stat_percentage(current_match.get('pnts_gagnes_ps', '0/0')),
+        # 'second_serve_won_pct': extract_stat_percentage(current_match.get('pnts_gagnes_ss', '0/0')),
+        # 'return_points_won_pct': extract_stat_percentage(current_match.get('retours_gagnes', '0/0')),
+        # 'break_point_won_pct': extract_stat_percentage(current_match.get('balles_break_gagnees', '0/0')),
+        # 'double_fautes': int(current_match.get('double_fautes', 0)),
+        # 'aces': int(current_match.get('aces', 0))
+    }
 
+    stats.update(averages)
     return stats
 
-def extract_stat_percentage(value):
+
+def extract_stat_percentage(value) -> float:
     """
     Extrait le pourcentage d'une chaîne au format 'XX/YY (ZZ%)'.
     Args:
@@ -176,7 +245,7 @@ def extract_stat_percentage(value):
         return 0
 
 
-def calculate_average_stat_ratio(matches, stat_key):
+def calculate_average_stat_ratio(matches, stat_key) -> float:
     """
     Calcule la moyenne pondérée d'une statistique donnée à partir des ratios.
 
@@ -220,7 +289,7 @@ def calculate_average_stat_absolue(matches, stat_key):
             
     return np.mean(values) if values else 0
 
-def prepare_match_data(player1_data, player2_data, match_info):
+def prepare_match_data(player1_data, player2_data, match_info) -> dict:
     """
     Combine les features des deux joueurs pour un match
     """
@@ -241,7 +310,7 @@ def prepare_match_data(player1_data, player2_data, match_info):
     
     return features
 
-def get_tournament_category(tournament_name):
+def get_tournament_category(tournament_name) -> int:
     """
     Détermine la catégorie du tournoi en fonction de son nom.
 
@@ -291,7 +360,7 @@ def load_data(joueurs_file, detail_joueurs_file, stats_match_file):
     return joueurs_data, detail_joueurs, stats_matches
 
 
-def create_training_dataset(joueurs_data, detail_joueurs, stats_matches):
+def create_training_dataset(joueurs_data, detail_joueurs, stats_matches) -> pl.DataFrame:
     """
     Crée un dataset d'entraînement à partir des données avec suivi de progression.
     """
@@ -339,11 +408,12 @@ def create_training_dataset(joueurs_data, detail_joueurs, stats_matches):
                 match_info = {
                     'type_terrain': match['type_terrain'],
                     'tournoi': match['tournoi'],
-                    'lien_detail_match' : match['lien_detail_match']
+                    'lien_detail_match' : match['lien_detail_match'],
                 }
                 
                 features = prepare_match_data(player_features, opponent_features, match_info)
                 features['target'] = 1 if match['resultat'] == 'victoire' else 0
+                features['date'] = match['date']
                 dataset.append(features)
                 
             except Exception as e:
@@ -354,6 +424,3 @@ def create_training_dataset(joueurs_data, detail_joueurs, stats_matches):
     
     df = pl.DataFrame(dataset)
     return df
-
-
-
