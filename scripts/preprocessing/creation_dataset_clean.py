@@ -103,7 +103,7 @@ df_unique = df_unique.with_columns([
     (df_unique["surface"] == "gazon").cast(pl.Int8).alias("surface_gazon")
 ])
 
-columns_to_drop = ["player1_name", "player2_name", "url_match", "surface"]
+columns_to_drop = ["url_match", "surface"]
 df_clean = df_unique.drop(columns_to_drop).drop_nulls()
 
 df_modified = modify_players(df_clean)
