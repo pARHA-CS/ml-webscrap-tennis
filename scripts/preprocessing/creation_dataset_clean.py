@@ -61,7 +61,7 @@ def modify_players(df):
     # Étape 2 : Sélectionner les lignes avec les indices collectés
     df_selected = df_with_index.filter(pl.col("index").is_in(selected_indices))
 
-    # Étape 4 : Inverser les données des joueurs 1 et 2 sur la sélection dans le nouveau dataframe
+    # Étape 3 : Inverser les données des joueurs 1 et 2 sur la sélection dans le nouveau dataframe
     columns_to_swap = [col for col in df_selected.columns if "player1" in col or "player2" in col]
 
     swap_expressions = []
@@ -78,7 +78,7 @@ def modify_players(df):
         pl.lit(0).cast(pl.Int64).alias("target")
     )
 
-    # Étape 5 : Supprimer les lignes avec les indices récupérés dans le df initial
+    # Étape 4 : Supprimer les lignes avec les indices récupérés dans le df initial
     df_without_selected = df_with_index.filter(~pl.col("index").is_in(selected_indices))
 
     # Ajouter les lignes modifiées du DataFrame sélectionné à celui d'origine
