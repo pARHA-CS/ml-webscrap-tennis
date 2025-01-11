@@ -4,14 +4,13 @@
 """
 import polars as pl
 import os
-import numpy as np
 from src.preprocessing.preprocessing import modify_players
 
 current_dir = os.getcwd()
 print(current_dir)
 
 dataset_path = os.path.join(current_dir, "data", "tennis_dataset_raw.csv")
-output_path = os.path.join(current_dir, "data", "tennis_dataset_clean_essaie.csv")
+output_path = os.path.join(current_dir, "data", "tennis_dataset_clean.csv")
 
 df = pl.read_csv(dataset_path)
 
