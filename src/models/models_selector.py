@@ -1,15 +1,16 @@
 import logging
-from sklearn.model_selection import train_test_split, GridSearchCV # type: ignore
-from sklearn.linear_model import LogisticRegression # type: ignore
-from sklearn.tree import DecisionTreeClassifier # type: ignore
-from sklearn.ensemble import RandomForestClassifier # type: ignore
-from sklearn.neighbors import KNeighborsClassifier # type: ignore
-from sklearn.metrics import accuracy_score # type: ignore
-import xgboost as xgb 
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.feature_selection import SelectFromModel
+from sklearn.metrics import accuracy_score
+import xgboost as xgb
 
 logger = logging.getLogger(__name__)
 
-SEED = 42
+SEED = 1
 
 MODELS = {
     'LogisticRegression': {
@@ -22,7 +23,7 @@ MODELS = {
     'DecisionTreeClassifier': {
         'model': DecisionTreeClassifier(random_state=SEED),
         'param_grid': {
-            'max_depth': [None, 5, 10, 20], 
+            'max_depth': [None, 5, 10, 20],
             'min_samples_split': [2, 10, 20]
         }
     },
@@ -33,6 +34,15 @@ MODELS = {
             'max_depth': [5, 10, 20],
             'max_samples': [0.8],
             'max_features': ['sqrt']
+        }
+    },
+    'GradientBoostingClassifier': {
+        'model': GradientBoostingClassifier(random_state=SEED),
+        'param_grid': {
+            'n_estimators': [50, 100, 150, 200],
+            'learning_rate': [0.01, 0.1],
+            'max_depth': [1, 2, 3],
+            'subsample': [0.7, 0.8, 1.0]
         }
     },
     'XGBClassifier': {
@@ -52,6 +62,7 @@ MODELS = {
     }
 }
 
+
 def train_test(df, seed):
     """
     Splits the dataset into training and testing sets.
@@ -65,11 +76,13 @@ def train_test(df, seed):
     """
     X = df.drop("target").to_numpy()
     y = df.select("target").to_numpy().flatten()
-    return train_test_split(X, y, test_size=0.2, random_state=1)
+    return train_test_split(X, y, test_size=0.2, random_state=seed)
+
 
 def find_best_model(df, seed):
     """
-    Evaluates multiple models using GridSearchCV and selects the best one based on accuracy.
+    Evaluates multiple models using GridSearchCV with feature selection for each model
+    and selects the best one based on accuracy.
 
     Parameters:
         df (pl.DataFrame): Input dataset.
@@ -78,7 +91,6 @@ def find_best_model(df, seed):
     Returns:
         dict: Best model, its parameters, and accuracy score.
     """
-    
     X_train, X_test, y_train, y_test = train_test(df, seed)
 
     best_model = None
@@ -87,6 +99,7 @@ def find_best_model(df, seed):
 
     for name, config in MODELS.items():
         logger.info(f"Training {name}...")
+
         grid_search = GridSearchCV(config['model'], config['param_grid'], cv=5, scoring='accuracy', verbose=1)
         grid_search.fit(X_train, y_train)
 
@@ -106,4 +119,3 @@ def find_best_model(df, seed):
         'best_model': best_model,
         'accuracy': best_score
     }
-
