@@ -8,7 +8,7 @@ import polars as pl
 current_dir = os.getcwd()
 
 output_path = os.path.join(current_dir, "data", "tennis_dataset_app.csv")
-dataset_path = os.path.join(current_dir, "data", "tennis_dataset_clean_essaie.csv")
+dataset_path = os.path.join(current_dir, "data", "tennis_dataset_clean.csv")
 
 df = pl.read_csv(dataset_path)
 
