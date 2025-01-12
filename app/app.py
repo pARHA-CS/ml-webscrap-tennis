@@ -35,7 +35,6 @@ def display_top_200():
     st.dataframe(top_200)
 
 
-
 def predict_match():
     st.title("Prédiction de match de tennis 🎾")
 
@@ -47,6 +46,27 @@ def predict_match():
     st.subheader("Type de tournoi")
     tournament_type = st.selectbox("Type de tournoi :", ["Grand Slam", "Masters 1000", "ATP 500", "ATP 250"], index=0)
 
+    with st.expander("ℹ️ Voir les catégories des tournois"):
+        st.info("""
+        **Catégories disponibles :**
+        
+        - **Grand Slam** (Catégorie 4) :
+            - Australian Open, Roland Garros, Wimbledon, U.S. Open.
+        
+        - **Masters 1000** (Catégorie 3) :
+            - Indian Wells, Miami, Monte Carlo, Madrid, Rome, Canada, Cincinnati, Shanghai, Paris.
+        
+        - **ATP Finals & Laver Cup** (Catégorie 3) :
+            - ATP Finals, Laver Cup.
+        
+        - **ATP 500** (Catégorie 2) :
+            - Rotterdam, Dubai, Acapulco, Barcelona, Queen's, Halle, Hamburg, Beijing, Tokyo, Vienna, Basel.
+        
+        - **ATP 250** (Catégorie 1) :
+            - Tous les autres tournois.
+    """)
+
+    
     tournament_type_mapping = {"Grand Slam": 4, "Masters 1000": 3, "ATP 500": 2, "ATP 250": 1}
     tournament_encoded = tournament_type_mapping[tournament_type]
 
@@ -74,7 +94,7 @@ def predict_match():
             abs(match_data[0][11] - match_data[0][36]),  
             abs(match_data[0][13] - match_data[0][38])   
         ]
-
+        
         tournament_and_surface_features = [tournament_encoded] + surface_one_hot
         match_data_with_all_features = np.append(match_data, additional_features + tournament_and_surface_features).reshape(1, -1)
 
@@ -87,10 +107,9 @@ def predict_match():
         st.header("Probabilités de victoire :")
         col1, col2 = st.columns(2)
         with col1:
-            st.metric(player1, f"{probabilities[0][0] * 100:.1f}%")
+            st.metric(player1, f"{probabilities[0][1] * 100:.1f}%")
         with col2:
-            st.metric(player2, f"{probabilities[0][1] * 100:.1f}%")
-
+            st.metric(player2, f"{probabilities[0][0] * 100:.1f}%")
 
 
 st.sidebar.title("Menu")
