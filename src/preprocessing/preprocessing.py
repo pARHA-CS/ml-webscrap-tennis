@@ -92,10 +92,9 @@ def calculate_win_rates(matches) -> dict:
         'win_rate_3_sets': sum(
             1 for m in matches if len(m['score'].split(', ')) >= 3 and m['resultat'] == 'victoire'
         ) / max(1, three_set_matches),
-        'win_rate_tiebreak': sum(
-            1 for m in matches 
-            if (any('7-6' in set_score for set_score in m['score'].split(', ')) and m['resultat'] == 'victoire')
-            or (any('6-7' in set_score for set_score in m['score'].split(', ')) and m['resultat'] == 'défaite')
+        'win_rate_tiebreak' : sum(
+            1 for m in matches if any(set_score in ['7-6', '6-7'] for set_score in m['score'].split(', '))
+            and m['resultat'] == 'victoire'
         ) / max(1, tiebreak_matches)
     }
 
