@@ -167,6 +167,26 @@ uv sync
 streamlit run app\app.py
 ```
 
+### Prédiction
+
+
+- Pour comparer deux joueurs :
+    - Sélectionner les joueurs à comparer
+    - Chosir le type de tournoi
+    - Choisir la surface de terrain
+    - Cliquer sur `Prédire l'issue du match`
+    - Et vous aurez les probabilités de victoires des deux joueurs
+
+<img src="img/page_accueil_app.png" alt="Page d'accueil" style="width: 50%;">
+
+
+### Classement 
+
+- Si vous voulez regarder le classement du top 200 :
+    - Cliquer sur *Top 200 joueurs* dans la barre à gauche
+
+<img src="img/top_200_joueurs.png" alt="Page d'accueil" style="width: 50%;">
+
 ---
 
 ## Auteurs
