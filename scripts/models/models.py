@@ -9,8 +9,8 @@ setup_logging("models.log")
 logger: logging.Logger = logging.getLogger(__name__)  
 
 current_dir = os.getcwd()
-dataset_path = os.path.join(current_dir, "data", "tennis_dataset_clean.csv")
-df = pl.read_csv(dataset_path)
+dataset_path = os.path.join(current_dir, "data", "tennis_dataset_clean.parquet")
+df = pl.read_parquet(dataset_path)
 
 df = df.drop("player1_name", "player2_name", "index", "date") 
 

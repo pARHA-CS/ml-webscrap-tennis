@@ -7,10 +7,10 @@ import polars as pl
 
 current_dir = os.getcwd()
 
-output_path = os.path.join(current_dir, "data", "tennis_dataset_app.csv")
-dataset_path = os.path.join(current_dir, "data", "tennis_dataset_clean.csv")
+output_path = os.path.join(current_dir, "data", "tennis_dataset_app.parquet")
+dataset_path = os.path.join(current_dir, "data", "tennis_dataset_clean.parquet")
 
-df = pl.read_csv(dataset_path)
+df = pl.read_parquet(dataset_path)
 
 df = df.with_columns(
     pl.col("date").str.strptime(pl.Date, format="%d.%m.%y").alias("date")
@@ -39,4 +39,4 @@ df_player2 = derniers_matches.select([col for col in derniers_matches.columns if
 df_combined = pl.concat([df_player1, df_player2], how="vertical").sort(by="date", descending=True)
 df_recent = df_combined.group_by("player1_name").agg(pl.col("*").first())
 
-df_recent.drop("date").write_csv(output_path)
+df_recent.drop("date").write_parquet(output_path)

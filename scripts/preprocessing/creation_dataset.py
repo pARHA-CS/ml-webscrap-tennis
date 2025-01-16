@@ -13,7 +13,7 @@ logger: logging.Logger = logging.getLogger(__name__)
 logger.info("Script de scraping des données des joueurs démarré.")
 logger.info("Chargement des données...")
 
-output_file = 'data/tennis_dataset_raw.csv'
+output_file = 'data/tennis_dataset_raw.parquet'
 
 try:
     joueurs_data, detail_joueurs, stats_matches = pre.load_data(
@@ -29,8 +29,8 @@ except Exception as e:
 try:
     logger.info("Création du dataset d'entraînement...")
     df: DataFrame = pre.create_training_dataset(joueurs_data, detail_joueurs, stats_matches)
-    df.write_csv(output_file)
-    logger.info("Dataset brut sauvegardé dans 'data/tennis_dataset_raw.csv'.")
+    df.write_parquet(output_file)
+    logger.info("Dataset brut sauvegardé dans 'data/tennis_dataset_raw.parquet'.")
 except Exception as e:
     logger.error(f"Erreur lors de la création du dataset : {e}")
     raise

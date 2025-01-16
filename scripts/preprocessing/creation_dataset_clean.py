@@ -9,10 +9,10 @@ from src.preprocessing.preprocessing import modify_players
 current_dir = os.getcwd()
 print(current_dir)
 
-dataset_path = os.path.join(current_dir, "data", "tennis_dataset_raw.csv")
-output_path = os.path.join(current_dir, "data", "tennis_dataset_clean.csv")
+dataset_path = os.path.join(current_dir, "data", "tennis_dataset_raw.parquet")
+output_path = os.path.join(current_dir, "data", "tennis_dataset_clean.parquet")
 
-df = pl.read_csv(dataset_path)
+df = pl.read_parquet(dataset_path)
 
 df_unique = df.unique('url_match')
 
@@ -42,4 +42,4 @@ df_modified = df_modified.with_columns([
     (abs(df_modified["player1_win_rate_salle"] - df_modified["player2_win_rate_salle"])).alias("win_rate_salle_diff"),
 ])
 
-df_modified.write_csv(output_path)
+df_modified.write_parquet(output_path)

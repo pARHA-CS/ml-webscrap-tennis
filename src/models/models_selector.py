@@ -4,7 +4,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.feature_selection import SelectFromModel
 from sklearn.metrics import accuracy_score
 import xgboost as xgb
 

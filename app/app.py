@@ -5,7 +5,7 @@ import numpy as np
 
 
 model = joblib.load("data/best_model.joblib")
-player_data = pl.read_csv("data/tennis_dataset_app.csv")
+player_data = pl.read_parquet("data/tennis_dataset_app.parquet")
 
 
 
