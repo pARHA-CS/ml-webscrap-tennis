@@ -4,15 +4,15 @@
 Script pour scraper le classement ATP via tennisendirect.net
 """
 
-from requests import get
+from requests import Response, get
 from bs4 import BeautifulSoup
-import src.scraping.scrap_page_classement as spp
+import src.scraping.scrap_page_classement as spp, Ligne
 import json
 import os
 
 ADRESSE = "https://www.tennisendirect.net/atp/classement/"
 
-reponse = get(ADRESSE)
+reponse: Response = get(ADRESSE)
 print(reponse.status_code)
 assert reponse.status_code == 200
 
@@ -20,7 +20,7 @@ assert reponse.status_code == 200
 current_dir: str = os.getcwd()
 html_file_path: str = os.path.join(current_dir, "html", "page_source.html")
 
-os.makedirs(os.path.dirname(html_file_path), exist_ok=True)  # Crée le répertoire si nécessaire
+os.makedirs(os.path.dirname(html_file_path), exist_ok=True) 
 
 with open(html_file_path, "w", encoding="utf-8") as html_file:
     html_file.write(reponse.text)
@@ -36,7 +36,7 @@ table_inter, _ = tables
 
 lignes_inter = spp.extraire_lignes(table_inter)
 
-joueurs = [spp.genere_ligne(ligne) for ligne in lignes_inter if spp.genere_ligne(ligne)]
+joueurs: list[Ligne | None] = [spp.genere_ligne(ligne) for ligne in lignes_inter if spp.genere_ligne(ligne)]
 
 current_dir: str = os.getcwd()
 

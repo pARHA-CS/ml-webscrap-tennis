@@ -1,14 +1,10 @@
-from bs4 import BeautifulSoup
-
 from src.preprocessing.preprocessing import (
-    create_player_features,
     calculate_win_rates,
     calculate_surface_stats,
     prepare_match_data,
     create_training_dataset
 )
 import pytest
-import polars as pl
 def test_calculate_win_rates():
     matches = [
         {"resultat": "victoire", "score": "6-3, 6-4"},
