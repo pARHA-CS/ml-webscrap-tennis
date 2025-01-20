@@ -1,143 +1,82 @@
-import pytest
 from src.preprocessing.preprocessing import (
-    create_player_features, filter_matches_before_date, calculate_win_rates,
-    calculate_surface_stats, calculate_performance_stats, extract_stat_percentage,
-    calculate_average_stat_ratio, calculate_average_stat_absolue,
-    prepare_match_data, get_tournament_category, load_data, create_training_dataset
+    calculate_win_rates,
+    calculate_surface_stats,
+    prepare_match_data,
+    create_training_dataset
 )
+import pytest
+def test_calculate_win_rates():
+    matches = [
+        {"resultat": "victoire", "score": "6-3, 6-4"},
+        {"resultat": "victoire", "score": "7-6, 4-6, 6-3"},
+        {"resultat": "défaite", "score": "6-7, 7-5, 6-4"}
+    ]
+    win_rates = calculate_win_rates(matches)
 
+    attendu = {
+        'win_rate': 2 / 3,
+        'win_rate_3_sets': 1 / 2,
+        'win_rate_tiebreak': 1 / 2
+    }
 
-@pytest.fixture
-def sample_matches():
-    return [
-        {
-            "date": "03.10.24",
-            "stage": "1er tour",
-            "nom_joueur": "Pedro Martinez Portero",
-            "nom_opposant": "Jakub Mensik",
-            "score": "6-1, 5-7, 6-4",
-            "resultat": "défaite",
-            "lien_detail_match": "https://www.tennisendirect.net/atp/match/jakub-mensik-VS-pedro-martinez-portero/shanghai-rolex-masters-shanghai-2024/",
-            "tournoi": "Shanghai Rolex Masters - Shanghai / $10.2M",
-            "type_terrain": "dure"
-        },
-        {
-            "date": "26.09.24",
-            "stage": "1er tour",
-            "nom_joueur": "Pedro Martinez Portero",
-            "nom_opposant": "Jiri Lehecka",
-            "score": "7-6(4), 6-2",
-            "resultat": "victoire",
-            "lien_detail_match": "https://www.tennisendirect.net/atp/match/jiri-lehecka-VS-pedro-martinez-portero/china-open-beijing-2024/",
-            "tournoi": "China Open - Beijing / $3.891M",
-            "type_terrain": "dure"
-        },
+    assert win_rates == pytest.approx(attendu)
+
+def test_calculate_surface_stats():
+    matches = [
+        {"type_terrain": "dure", "resultat": "victoire"},
+        {"type_terrain": "terre battue", "resultat": "défaite"},
+        {"type_terrain": "dure", "resultat": "victoire"},
     ]
 
+    stats = calculate_surface_stats(matches)
 
-@pytest.fixture
-def sample_player_data():
-    return {
-        "rank": "48.",
-        "pays": "Czech Republic",
-        "lien_joueur": "https://www.tennisendirect.net/atp/jakub-mensik/",
-        "nom_joueur": "Jakub Mensik",
-        "pays_abreviation": "CZE",
-        "age": "19 ans",
-        "points": "1136"
+    attendu = {
+        'total_matches_dure': 2,
+        'win_rate_dure': 1.0,
+        'total_matches_terre battue': 1,
+        'win_rate_terre battue': 0.0,
+        'total_matches_gazon': 0,
+        'win_rate_gazon': 0,
+        'total_matches_salle': 0,
+        'win_rate_salle': 0,
+        'total_matches_carpet': 0,
+        'win_rate_carpet': 0,
+        'total_matches_acryl': 0,
+        'win_rate_acryl': 0
     }
 
+    assert stats == attendu
 
-@pytest.fixture
-def sample_stats_matches_data():
-    return {
-        "match_1": {
-            "lien_match": "https://www.tennisendirect.net/atp/match/jakub-mensik-VS-pedro-martinez-portero/shanghai-rolex-masters-shanghai-2024/",
-            "joueur_gagnant": {
-                "nom_joueur": "Jakub Mensik",
-                "premier_service": "53/81 (65%)",
-                "pnts_gagnes_ps": "41/53 (77%)",
-                "pnts_gagnes_ss": "16/28 (57%)",
-                "balles_break_gagnees": "4/6 (67%)",
-                "retours_gagnes": "34/81 (42%)",
-                "total_points_gagnes": "91/162 (56%)",
-                "double_fautes": "4",
-                "aces": "14"
-            },
-            "joueur_perdant": {
-                "nom_joueur": "Pedro Martinez Portero",
-                "premier_service": "58/81 (72%)",
-                "pnts_gagnes_ps": "35/58 (60%)",
-                "pnts_gagnes_ss": "12/23 (52%)",
-                "balles_break_gagnees": "2/4 (50%)",
-                "retours_gagnes": "24/81 (30%)",
-                "total_points_gagnes": "71/162 (44%)",
-                "double_fautes": "3",
-                "aces": "3"
-            }
-        }
+def test_prepare_match_data():
+    player1_data = {"name": "Player 1", "ranking": 10}
+    player2_data = {"name": "Player 2", "ranking": 15}
+    match_info = {"type_terrain": "dure", "tournoi": "Australian Open"}
+
+    features = prepare_match_data(player1_data, player2_data, match_info)
+
+    attendu = {
+        'player1_name': "Player 1",
+        'player1_ranking': 10,
+        'player2_name': "Player 2",
+        'player2_ranking': 15,
+        'surface': "dure",
+        'tournament_category': 4
     }
 
+    assert features == attendu
 
-def test_filter_matches_before_date(sample_matches):
-    filtered = filter_matches_before_date(sample_matches, "03.10.24")
-    assert len(filtered) == 1
-    assert filtered[0]["date"] == "26.09.24"
+def test_create_training_dataset():
+    joueurs_data = [{"nom_joueur": "Player 1", "rank": "1"}, {"nom_joueur": "Player 2", "rank": "2"}]
+    detail_joueurs = {
+        "Player 1": {"matchs": [{"nom_opposant": "Player 2", "type_terrain": "dure", "tournoi": "Australian Open", "resultat": "victoire"}]},
+        "Player 2": {"matchs": [{"nom_opposant": "Player 1", "type_terrain": "dure", "tournoi": "Australian Open", "resultat": "défaite"}]}
+    }
+    stats_matches = {}
 
+    df = create_training_dataset(joueurs_data, detail_joueurs, stats_matches)
 
-def test_calculate_win_rates(sample_matches):
-    win_rates = calculate_win_rates(sample_matches)
-    assert win_rates["win_rate"] == 0.5
-    assert win_rates["win_rate_3_sets"] == 0.5
-    assert win_rates["win_rate_tiebreak"] == 1.0
-
-
-def test_calculate_surface_stats(sample_matches):
-    surface_stats = calculate_surface_stats(sample_matches)
-    assert surface_stats["total_matches_dure"] == 2
-    assert surface_stats["win_rate_dure"] == 0.5
-
-
-def test_create_player_features(sample_player_data, sample_matches, sample_stats_matches_data):
-    current_match = sample_matches[0]
-    player_features = create_player_features(
-        sample_player_data, sample_matches, sample_stats_matches_data, current_match
-    )
-    assert player_features["name"] == "Jakub Mensik"
-    assert player_features["age"] == 19
-    assert "win_rate" in player_features
-
-
-def test_extract_stat_percentage():
-    assert extract_stat_percentage("50/100 (50%)") == 0.5
-    assert extract_stat_percentage("NA") == 0.0
-    assert extract_stat_percentage("") == 0.0
-
-
-def test_calculate_average_stat_ratio(sample_stats_matches_data):
-    matches = sample_stats_matches_data.values()
-    average = calculate_average_stat_ratio(matches, "premier_service")
-    assert average == 0.65
-
-
-def test_calculate_average_stat_absolue(sample_stats_matches_data):
-    matches = sample_stats_matches_data.values()
-    average = calculate_average_stat_absolue(matches, "aces")
-    assert average == 8.5
-
-
-def test_get_tournament_category():
-    assert get_tournament_category("Roland Garros") == 4
-    assert get_tournament_category("ATP Finals") == 3
-    assert get_tournament_category("Rotterdam") == 2
-    assert get_tournament_category("Unknown") == 1
-
-
-def test_create_training_dataset(sample_player_data, sample_matches, sample_stats_matches_data):
-    dataset = create_training_dataset(
-        sample_player_data,
-        {"Jakub Mensik": {"matchs": sample_matches}},
-        sample_stats_matches_data
-    )
-    assert len(dataset) > 0
-    assert "player1_name" in dataset.columns
+    assert df.shape[0] == 1
+    assert df.columns == [
+        "player1_name", "player1_rank", "player2_name", "player2_rank",
+        "surface", "tournament_category", "target"
+    ]

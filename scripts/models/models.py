@@ -8,11 +8,11 @@ from src.models.models_selector import find_best_model, SEED
 setup_logging("models.log")
 logger: logging.Logger = logging.getLogger(__name__)  
 
-current_dir = os.getcwd()
-dataset_path = os.path.join(current_dir, "data", "tennis_dataset_clean.csv")
-df = pl.read_csv(dataset_path)
+current_dir: str = os.getcwd()
+dataset_path: str = os.path.join(current_dir, "data", "tennis_dataset_clean.parquet")
+df: pl.DataFrame = pl.read_parquet(dataset_path)
 
-df = df.drop("player1_name", "player2_name", "index", "date") 
+df = df.drop("player1_name", "player2_name", "date") 
 
 results = find_best_model(df, SEED)
 

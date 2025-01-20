@@ -4,7 +4,6 @@ from src.scraping.scrap_page_joueur import (genere_profil,
                                             genere_statistiques_dict,
                                             genere_statistiques_agregrees,
                                             filtre_tour_head,
-                                            filtre_no_tour_head,
                                             genere_derniers_matchs,
                                             Profil, Matchs)
      

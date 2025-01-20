@@ -4,9 +4,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.feature_selection import SelectFromModel
 from sklearn.metrics import accuracy_score
 import xgboost as xgb
+import polars as pl
 
 logger = logging.getLogger(__name__)
 
@@ -63,34 +63,42 @@ MODELS = {
 }
 
 
-def train_test(df, seed):
+def train_test(df: pl.DataFrame, seed: int):
     """
-    Splits the dataset into training and testing sets.
+    Sépare les données en ensembles d'entraînement et de test.
 
-    Parameters:
-        df (pl.DataFrame): Input dataset.
-        seed (int): Random seed for reproducibility.
+    Args:
+        df (pl.DataFrame): DataFrame contenant les données avec une colonne "target" comme étiquette.
+        seed (int): Valeur pour initialiser le générateur aléatoire afin d'assurer la reproductibilité.
 
     Returns:
-        tuple: X_train, X_test, y_train, y_test
+        tuple: Contient quatre éléments :
+            - X_train (np.ndarray): Données d'entraînement sans la cible.
+            - X_test (np.ndarray): Données de test sans la cible.
+            - y_train (np.ndarray): Étiquettes d'entraînement.
+            - y_test (np.ndarray): Étiquettes de test.
     """
+
     X = df.drop("target").to_numpy()
     y = df.select("target").to_numpy().flatten()
     return train_test_split(X, y, test_size=0.2, random_state=seed)
 
 
-def find_best_model(df, seed):
+def find_best_model(df: pl.DataFrame, seed: int) -> dict:
     """
-    Evaluates multiple models using GridSearchCV with feature selection for each model
-    and selects the best one based on accuracy.
+    Identifie le meilleur modèle en testant plusieurs algorithmes avec recherche d'hyperparamètres.
 
-    Parameters:
-        df (pl.DataFrame): Input dataset.
-        seed (int): Random seed for reproducibility.
+    Args:
+        df (pl.DataFrame): DataFrame contenant les données avec une colonne "target" comme étiquette.
+        seed (int): Valeur pour initialiser le générateur aléatoire afin d'assurer la reproductibilité.
 
     Returns:
-        dict: Best model, its parameters, and accuracy score.
+        dict: Un dictionnaire contenant :
+            - 'model_name' (str): Nom du modèle avec la meilleure performance.
+            - 'best_model' (object): Instance du meilleur modèle entraîné.
+            - 'accuracy' (float): Score de précision obtenu sur le jeu de test.
     """
+
     X_train, X_test, y_train, y_test = train_test(df, seed)
 
     best_model = None

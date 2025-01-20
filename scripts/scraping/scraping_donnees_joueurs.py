@@ -9,7 +9,7 @@ import time
 import logging
 import random
 from tqdm import tqdm
-from requests import get
+from requests import Response, get
 from bs4 import BeautifulSoup
 import src.scraping.scrap_page_joueur as spj
 
@@ -66,7 +66,7 @@ for joueur in tqdm(generateur_joueurs, desc="Scraping des joueurs", unit="joueur
     logger.info(f"Début du scraping pour {nom_joueur}...")
 
     try:
-        reponse = get(lien)
+        reponse: Response = get(lien)
         reponse.raise_for_status()
         detail_joueur = BeautifulSoup(reponse.text, features="lxml")
         
@@ -77,13 +77,13 @@ for joueur in tqdm(generateur_joueurs, desc="Scraping des joueurs", unit="joueur
         if len(profil) != 1 or len(statistiques) != 1:
             raise ValueError(f"Erreur dans la structure des données pour {nom_joueur}")
 
-        joueur_profil = spj.genere_profil(profil)
+        joueur_profil: spj.Profil = spj.genere_profil(profil)
         
         lignes_stats = spj.extraire_lignes(statistiques[0])
         joueur_statistiques_agregees = spj.genere_statistiques_agregrees(lignes_stats)
         
         lignes_derniers_matchs = spj.extraire_lignes(derniers_match)
-        joueur_derniers_matchs = spj.genere_derniers_matchs(lignes_derniers_matchs)
+        joueur_derniers_matchs: spj.List[spj.Matchs] = spj.genere_derniers_matchs(lignes_derniers_matchs)
 
         joueurs_data[nom_joueur] = {
             "profil": joueur_profil.__dict__,
