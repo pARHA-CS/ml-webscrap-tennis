@@ -2,7 +2,8 @@
 """
 
 from dataclasses import dataclass
-from typing import Tuple
+from typing import Tuple, List
+
 
 @dataclass
 class Profil:
@@ -16,7 +17,8 @@ class Profil:
     total_match: str
     victoires: str
     taux_reussite: str
-    
+
+
 @dataclass
 class Statistiques:
     annee: str
@@ -27,7 +29,8 @@ class Statistiques:
     carpet: str
     gazon: str
     acryl: str
-    
+
+
 @dataclass
 class Matchs:
     date: str
@@ -38,9 +41,10 @@ class Matchs:
     resultat: str
     lien_detail_match: str
     tournoi: str
-    type_terrain :str
-    
-def genere_profil(profil):
+    type_terrain: str
+
+
+def genere_profil(profil) -> Profil:
     """
     Génère un profil de joueur de tennis à partir des informations HTML fournies.
 
@@ -48,8 +52,8 @@ def genere_profil(profil):
         profil (list): Une liste d'éléments HTML, où le premier élément contient les informations du joueur.
 
     Returns:
-        Profil: Un objet contenant les informations du joueur, telles que le nom, le pays, 
-        la date de naissance, l'âge, le classement ATP, les points, les primes, le total de matchs, 
+        Profil: Un objet contenant les informations du joueur, telles que le nom, le pays,
+        la date de naissance, l'âge, le classement ATP, les points, les primes, le total de matchs,
         les victoires, et le taux de réussite.
 
     Remarque:
@@ -69,9 +73,20 @@ def genere_profil(profil):
         total_match = div.find_all("b")[-3].text.strip()
         victoires = div.find_all("b")[-2].text.strip()
         taux_reussite = div.find_all("b")[-1].text.strip().split(" ")[0]
-    
+
     except (IndexError, AttributeError):
-        nom_joueur, pays, date_naissance, age, classement_atp, points, primes, total_match, victoires, taux_reussite =(
+        (
+            nom_joueur,
+            pays,
+            date_naissance,
+            age,
+            classement_atp,
+            points,
+            primes,
+            total_match,
+            victoires,
+            taux_reussite,
+        ) = (
             "NA",
             "NA",
             "NA",
@@ -83,7 +98,7 @@ def genere_profil(profil):
             "NA",
             "NA",
         )
-        
+
     return Profil(
         nom=nom_joueur,
         pays=pays,
@@ -95,10 +110,10 @@ def genere_profil(profil):
         total_match=total_match,
         victoires=victoires,
         taux_reussite=taux_reussite,
-    )  
-  
+    )
 
-def extraire_lignes(table):
+
+def extraire_lignes(table) -> list:
     """
     Extrait les lignes d'une table HTML ayant des classes spécifiques.
 
@@ -111,8 +126,9 @@ def extraire_lignes(table):
     return table.find_all(
         "tr", class_=lambda class_name: class_name in ["pair", "unpair"]
     )
-    
-def genere_statistiques_dict(ligne):
+
+
+def genere_statistiques_dict(ligne) -> dict | None:
     """
     Génère un dictionnaire de statistiques annuelles à partir d'une ligne HTML.
 
@@ -123,7 +139,7 @@ def genere_statistiques_dict(ligne):
         dict: Dictionnaire avec des clés du type 'annee_statistique' et des valeurs correspondantes.
     """
     colonnes = [td.text.strip() for td in ligne.find_all("td")]
-    
+
     if len(colonnes) == 8:
         annee, sommaire, dure, terre_battue, salle, carpet, gazon, acryl = colonnes
     else:
@@ -137,10 +153,11 @@ def genere_statistiques_dict(ligne):
         f"{annee}_salle": salle,
         f"{annee}_carpet": carpet,
         f"{annee}_gazon": gazon,
-        f"{annee}_acryl": acryl
+        f"{annee}_acryl": acryl,
     }
 
-def genere_statistiques_agregrees(lignes_stats):
+
+def genere_statistiques_agregrees(lignes_stats) -> dict:
     """
     Agrège les statistiques d'un joueur en un seul dictionnaire.
 
@@ -159,7 +176,7 @@ def genere_statistiques_agregrees(lignes_stats):
 
     return aggregated_stats
 
-   
+
 def filtre_tour_head(ligne) -> Tuple[Matchs, str, str]:
     """
     Filtre les informations d'une ligne HTML pour extraire les données d'un match et des détails du tournoi.
@@ -168,15 +185,15 @@ def filtre_tour_head(ligne) -> Tuple[Matchs, str, str]:
         ligne (BeautifulSoup): Élément HTML représentant une ligne `<tr>` contenant les informations du match.
 
     Returns:
-        Tuple[Matchs, str, str]: 
+        Tuple[Matchs, str, str]:
             - Un objet `Matchs` avec les détails du match (date, stage, vainqueur, perdant, score, etc.).
             - Le nom du tournoi (str).
             - Le type de terrain (str).
     """
 
-    (
-        date, stage, _, _, score, _, _, _, type_terrain
-    ) = [td.text.strip() for td in ligne.find_all("td")]
+    (date, stage, _, _, score, _, _, _, type_terrain) = [
+        td.text.strip() for td in ligne.find_all("td")
+    ]
 
     try:
         nom_joueur = ligne.find_all("b")[0].text.strip()
@@ -184,28 +201,33 @@ def filtre_tour_head(ligne) -> Tuple[Matchs, str, str]:
         resultat = ligne.find_all("img")[0]["alt"]
         lien_detail_match = ligne.find_all("a")[1]["href"]
         tournoi = ligne.find_all("a")[2]["title"]
-    
+
     except (IndexError, AttributeError):
-        nom_joueur, nom_opposant, resultat, lien_detail_match, tournoi =(
+        nom_joueur, nom_opposant, resultat, lien_detail_match, tournoi = (
             "NA",
             "NA",
             "NA",
             "NA",
             "NA",
         )
-        
-    return Matchs(
-        date=date,
-        stage=stage,
-        nom_joueur=nom_joueur,
-        nom_opposant=nom_opposant,
-        score=score,
-        resultat=resultat,
-        lien_detail_match=lien_detail_match,
-        tournoi=tournoi,
-        type_terrain=type_terrain,
-    ), tournoi, type_terrain
-    
+
+    return (
+        Matchs(
+            date=date,
+            stage=stage,
+            nom_joueur=nom_joueur,
+            nom_opposant=nom_opposant,
+            score=score,
+            resultat=resultat,
+            lien_detail_match=lien_detail_match,
+            tournoi=tournoi,
+            type_terrain=type_terrain,
+        ),
+        tournoi,
+        type_terrain,
+    )
+
+
 def filtre_no_tour_head(ligne) -> tuple:
     """
     Extrait les informations d'une ligne HTML pour un match sans détails sur le tournoi.
@@ -223,28 +245,27 @@ def filtre_no_tour_head(ligne) -> tuple:
             - resultat (str): Résultat du match (par exemple, "victoire" ou "défaite").
             - lien_detail_match (str): Lien vers les détails du match.
     """
-    
-    (
-        date, stage, _, _, score, _, _
-    ) = [td.text.strip() for td in ligne.find_all("td")]
+
+    (date, stage, _, _, score, _, _) = [td.text.strip() for td in ligne.find_all("td")]
 
     try:
         nom_joueur = ligne.find_all("b")[0].text.strip()
         nom_opposant = ligne.find_all("a")[0].text.strip()
         resultat = ligne.find_all("img")[0]["alt"]
         lien_detail_match = ligne.find_all("a")[1]["href"]
-        
+
     except (IndexError, AttributeError):
-        nom_joueur, nom_opposant, resultat, lien_detail_match =(
+        nom_joueur, nom_opposant, resultat, lien_detail_match = (
             "NA",
             "NA",
             "NA",
             "NA",
         )
-        
+
     return date, stage, nom_joueur, nom_opposant, score, resultat, lien_detail_match
 
-def genere_derniers_matchs(ligne_derniers_matchs):
+
+def genere_derniers_matchs(ligne_derniers_matchs) -> List[Matchs]:
     """
     Génère une liste des derniers matchs à partir des lignes HTML d'une table.
 
@@ -266,15 +287,23 @@ def genere_derniers_matchs(ligne_derniers_matchs):
 
     tournoi_precedent = ""
     type_terrain_precedent = ""
-    
+
     matchs = []
     for ligne in ligne_derniers_matchs:
         if "tour_head" in ligne["class"]:
             match, tournoi_precedent, type_terrain_precedent = filtre_tour_head(ligne)
             matchs.append(match)
-            
+
         elif "pair" in ligne["class"] or "unpair" in ligne["class"]:
-            date, stage, nom_joueur, nom_opposant, score, resultat, lien_detail_match = filtre_no_tour_head(ligne)
+            (
+                date,
+                stage,
+                nom_joueur,
+                nom_opposant,
+                score,
+                resultat,
+                lien_detail_match,
+            ) = filtre_no_tour_head(ligne)
 
             tournoi = tournoi_precedent
             type_terrain = type_terrain_precedent
@@ -288,10 +317,8 @@ def genere_derniers_matchs(ligne_derniers_matchs):
                 resultat=resultat,
                 lien_detail_match=lien_detail_match,
                 tournoi=tournoi,
-                type_terrain=type_terrain
+                type_terrain=type_terrain,
             )
             matchs.append(match)
-            
+
     return matchs
-
-

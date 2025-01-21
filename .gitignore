@@ -1,18 +1,9 @@
-# Python-generated files
-__pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
-
 # Virtual environments
 .venv
-idee.md
 
-ml-webscrap-tennis.bat
-
-run_path.bat
-
-log-example.log
-logging-example.py
+# Caches et fichiers temporaires
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+__pycache__/

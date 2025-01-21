@@ -3,7 +3,7 @@ import os
 import time
 import logging
 import src.scraping.scrap_page_match as spb
-from requests import get
+from requests import Response, get
 from random import uniform
 from bs4 import BeautifulSoup
 from src.logging.logging_config import setup_logging
@@ -12,10 +12,10 @@ from tqdm import tqdm
 setup_logging("scraping_donnees_matchs.log")
 logger: logging.Logger = logging.getLogger(__name__)
 
-current_dir = os.getcwd()
+current_dir: str = os.getcwd()
 output_file: str = os.path.join(current_dir, "data", "stats_matchs.json")
 
-path_detail_joueurs = os.path.join(current_dir, "data", "detail_joueurs.json")
+path_detail_joueurs: str = os.path.join(current_dir, "data", "detail_joueurs.json")
 try:
     with open(path_detail_joueurs, "r") as fichier:
         detail_joueurs = json.load(fichier)
@@ -54,13 +54,13 @@ for id_match, lien_match in tqdm(premiers_liens_avec_id.items(), desc="Scraping 
     logger.info(f"Début du scraping pour {id_match} : {lien_match}...")
     
     try:
-        reponse = get(lien_match)
+        reponse: Response = get(lien_match)
         assert reponse.status_code == 200, f"Erreur HTTP {reponse.status_code}: {lien_match}"
         
         detail_match = BeautifulSoup(reponse.text, features="lxml")
         statistiques = detail_match.find_all("table", attrs={"class": "table_stats_match"})[0]
         
-        table_data = spb.extraire_colonnes(statistiques)
+        table_data: spb.List[str] = spb.extraire_colonnes(statistiques)
         stats_dict = spb.lignes_statistiques(table_data)
         
         # Crée les objets StatsMatch
