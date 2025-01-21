@@ -10,6 +10,7 @@ import polars as pl
 
 logger = logging.getLogger(__name__)
 
+# Ne pas toucher à SEED
 SEED = 1
 
 MODELS = {

@@ -496,7 +496,7 @@ def load_data(joueurs_file: str, detail_joueurs_file: str, stats_match_file: str
 
 
 def create_training_dataset(
-    joueurs_data: dict, detail_joueurs: dict, stats_matches: dict
+    joueurs_data: list, detail_joueurs: dict, stats_matches: dict
 ) -> pl.DataFrame:
     """
     Crée un dataset d'entraînement à partir des données avec suivi de progression.

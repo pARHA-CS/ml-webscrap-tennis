@@ -2,9 +2,8 @@
 """
 
 from dataclasses import dataclass
-from bs4 import BeautifulSoup
 
-def extraire_lignes(table: BeautifulSoup) -> list:
+def extraire_lignes(table) -> list:
     """
     Extrait les lignes d'une table HTML en fonction de leurs classes.
 
