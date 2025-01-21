@@ -137,7 +137,7 @@ def calculate_win_rates(matches) -> dict:
     return win_rates
 
 
-def calculate_surface_stats(matches) -> dict[str, float]:
+def calculate_surface_stats(matches) -> dict:
     """
     Calcule les statistiques liées aux différentes surfaces de terrain pour un ensemble de matchs.
 
@@ -159,7 +159,7 @@ def calculate_surface_stats(matches) -> dict[str, float]:
     for surface in surfaces:
         if not matches:
             logger.warning("Aucun match disponible pour calculer les taux de victoire.")
-            stats[f"win_rate_{surface}"] = 0
+            stats[f"win_rate_{surface}"] = 0.0
 
         surface_matches = [m for m in matches if m["type_terrain"] == surface]
 
@@ -262,13 +262,13 @@ def calculate_performance_stats(
             f"Aucun match trouvé pour {player_name} avant {current_match_date.strftime('%d.%m.%y')}"
         )
         averages = {
-            "avg_first_serve_pct": 0,
-            "avg_first_serve_won_pct": 0,
-            "avg_second_serve_won_pct": 0,
-            "avg_return_points_won_pct": 0,
-            "avg_break_point_won_pct": 0,
-            "avg_double_fautes": 0,
-            "avg_aces": 0,
+            "avg_first_serve_pct": 0.0,
+            "avg_first_serve_won_pct": 0.0,
+            "avg_second_serve_won_pct": 0.0,
+            "avg_return_points_won_pct": 0.0,
+            "avg_break_point_won_pct": 0.0,
+            "avg_double_fautes": 0.0,
+            "avg_aces": 0.0,
         }
     else:
         averages = {
@@ -368,7 +368,7 @@ def calculate_average_stat_absolue(matches: list, stat_key: str) -> float|int:
                 )
                 continue
 
-    return np.mean(values) if values else 0
+    return np.mean(values) if values else 0  # type: ignore
 
 
 

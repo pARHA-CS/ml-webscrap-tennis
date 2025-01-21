@@ -19,9 +19,9 @@ df = df.with_columns(
 joueurs = set(list(df.select(pl.col("player1_name")).to_numpy().flatten()) + list(df.select(pl.col("player2_name")).to_numpy().flatten()))
 assert len(joueurs) == 200, f"nombre de joueurs incomplet, joueurs = {len(joueurs)}"
 
-derniers_matches = pl.DataFrame()
+derniers_matches: pl.DataFrame = pl.DataFrame()
 for joueur in joueurs:
-    dernier_match: pl.DataFrame = (
+    dernier_match = (
         df.filter(
             (pl.col("player1_name") == joueur) | (pl.col("player2_name") == joueur)
         )
@@ -29,7 +29,7 @@ for joueur in joueurs:
         .head(1)
     )
     if derniers_matches.is_empty():
-        derniers_matches: pl.DataFrame = dernier_match
+        derniers_matches = dernier_match
     else:
         derniers_matches = pl.concat([derniers_matches, dernier_match], how="vertical")
         
