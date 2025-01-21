@@ -6,7 +6,8 @@ Script pour scraper le classement ATP via tennisendirect.net
 
 from requests import Response, get
 from bs4 import BeautifulSoup
-import src.scraping.scrap_page_classement as spp, Ligne
+import src.scraping.scrap_page_classement as spp
+import Ligne
 import json
 import os
 
